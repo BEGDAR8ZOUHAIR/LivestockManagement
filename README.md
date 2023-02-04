@@ -8,10 +8,7 @@ https://www.figma.com/file/DNLwlzU6Wwixnj8rPXtoP9/Cattle-ZOO?node-id=0%3A1&t=A1S
 
 | Image | Image |
 |-------|-------|
-| ![Login](https://user-images.githubusercontent.com/93929557/216771281-1de7e37f-2b21-46fb-9819-9e2936c2d944.png) |![Register](https://user-images.githubusercontent.com/93929557/216771299-42fa9f0a-d34d-4dfe-8190-036a57ffec40.png) |
- ![Login-1](https://user-images.githubusercontent.com/93929557/216771283-9aa30115-d755-4695-8e47-ddee708ce67f.png) |
-![Onbording 2](https://user-images.githubusercontent.com/93929557/216771285-2702254d-4c01-456d-bb6c-3e4f70f4e28f.png) |
-![Register1](https://user-images.githubusercontent.com/93929557/216771300-07ce46ad-da0f-4c0b-9622-d398e7a1d863.png) |
+| ![Login](https://user-images.githubusercontent.com/93929557/216771281-1de7e37f-2b21-46fb-9819-9e2936c2d944.png) |![Register](https://user-images.githubusercontent.com/93929557/216771299-42fa9f0a-d34d-4dfe-8190-036a57ffec40.png) | ![Login-1](https://user-images.githubusercontent.com/93929557/216771283-9aa30115-d755-4695-8e47-ddee708ce67f.png) ![Onbording 2](https://user-images.githubusercontent.com/93929557/216771285-2702254d-4c01-456d-bb6c-3e4f70f4e28f.png) |![Register1](https://user-images.githubusercontent.com/93929557/216771300-07ce46ad-da0f-4c0b-9622-d398e7a1d863.png) |
 
 
 ## Features
