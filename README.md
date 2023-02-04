@@ -3,7 +3,19 @@
 This is a simplified cattle management software/app with detailed reports for profitable and manageable cattle farming (dairy and beef cattle).
 Helps dairy and beef cattle farmers manage their farms with ease and accuracy. Tracks and records farm cattle events, milk production, pregnancies, weight, insemination, income and expenses, etc. It generates reports in visual, excel, csv and pdf formats on the fly
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FDNLwlzU6Wwixnj8rPXtoP9%2FCattle-ZOO%3Fnode-id%3D0%253A1%26t%3DA1S4YLzSlLml7dXD-1" allowfullscreen></iframe>
+<table>
+  <tr>
+    <td> <img src="img1.png"  alt="1" width = 360px height = 640px ></td>
+
+    <td><img src="img2.png" alt="2" width = 360px height = 640px></td>
+   </tr> 
+   <tr>
+      <td><img src="./Scshot/cab_arrived.png" alt="3" width = 360px height = 640px></td>
+
+      <td><img src="./Scshot/trip_end.png" align="right" alt="4" width = 360px height = 640px>
+  </td>
+  </tr>
+</table>
 
 ## Maquette
 
