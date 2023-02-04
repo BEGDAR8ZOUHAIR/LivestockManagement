@@ -3,19 +3,17 @@
 This is a simplified cattle management software/app with detailed reports for profitable and manageable cattle farming (dairy and beef cattle).
 Helps dairy and beef cattle farmers manage their farms with ease and accuracy. Tracks and records farm cattle events, milk production, pregnancies, weight, insemination, income and expenses, etc. It generates reports in visual, excel, csv and pdf formats on the fly
 
+## Maquette
+https://www.figma.com/file/DNLwlzU6Wwixnj8rPXtoP9/Cattle-ZOO?node-id=0%3A1&t=A1S4YLzSlLml7dXD-1
+
 | Image | Image |
 |-------|-------|
-| ![Login](https://user-images.githubusercontent.com/93929557/216771281-1de7e37f-2b21-46fb-9819-9e2936c2d944.png) | ![Onbording 4](https://user-images.githubusercontent.com/93929557/216771297-876690c9-2258-4605-8596-2634aede2842.png) |
-| ![Register](https://user-images.githubusercontent.com/93929557/216771299-42fa9f0a-d34d-4dfe-8190-036a57ffec40.png) | ![Register1](https://user-images.githubusercontent.com/93929557/216771300-07ce46ad-da0f-4c0b-9622-d398e7a1d863.png) |
-| ![Login-1](https://user-images.githubusercontent.com/93929557/216771283-9aa30115-d755-4695-8e47-ddee708ce67f.png) | ![Onbording 1](https://user-images.githubusercontent.com/93929557/216771284-d674f0ce-1987-49c4-a3ed-ca491e090dc9.png) |
-| ![Onbording 2](https://user-images.githubusercontent.com/93929557/216771285-2702254d-4c01-456d-bb6c-3e4f70f4e28f.png) | ![Onbording 3](https://user-images.githubusercontent.com/93929557/216771286-81ba9531-c554-4c6b-98aa-6e69045892bf.png) |
+| ![Login](https://user-images.githubusercontent.com/93929557/216771281-1de7e37f-2b21-46fb-9819-9e2936c2d944.png) |  
+|![Register](https://user-images.githubusercontent.com/93929557/216771299-42fa9f0a-d34d-4dfe-8190-036a57ffec40.png) |
+| ![Login-1](https://user-images.githubusercontent.com/93929557/216771283-9aa30115-d755-4695-8e47-ddee708ce67f.png) |
+| ![Onbording 2](https://user-images.githubusercontent.com/93929557/216771285-2702254d-4c01-456d-bb6c-3e4f70f4e28f.png) |
+|![Register1](https://user-images.githubusercontent.com/93929557/216771300-07ce46ad-da0f-4c0b-9622-d398e7a1d863.png) |
 
-
-
-
-## Maquette
-
-https://xd.adobe.com/view/1bd2a348-de17-4eeb-99b4-558199006761-4e81/
 
 ## Features
 
