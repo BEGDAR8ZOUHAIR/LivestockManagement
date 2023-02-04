@@ -3,19 +3,15 @@
 This is a simplified cattle management software/app with detailed reports for profitable and manageable cattle farming (dairy and beef cattle).
 Helps dairy and beef cattle farmers manage their farms with ease and accuracy. Tracks and records farm cattle events, milk production, pregnancies, weight, insemination, income and expenses, etc. It generates reports in visual, excel, csv and pdf formats on the fly
 
-<table>
-  <tr>
-    <td> <img src="img1.png"  alt="1" width = 360px height = 640px ></td>
+| Image | Image |
+|-------|-------|
+| ![Login](https://user-images.githubusercontent.com/93929557/216771281-1de7e37f-2b21-46fb-9819-9e2936c2d944.png) | ![Onbording 4](https://user-images.githubusercontent.com/93929557/216771297-876690c9-2258-4605-8596-2634aede2842.png) |
+| ![Register](https://user-images.githubusercontent.com/93929557/216771299-42fa9f0a-d34d-4dfe-8190-036a57ffec40.png) | ![Register1](https://user-images.githubusercontent.com/93929557/216771300-07ce46ad-da0f-4c0b-9622-d398e7a1d863.png) |
+| ![Login-1](https://user-images.githubusercontent.com/93929557/216771283-9aa30115-d755-4695-8e47-ddee708ce67f.png) | ![Onbording 1](https://user-images.githubusercontent.com/93929557/216771284-d674f0ce-1987-49c4-a3ed-ca491e090dc9.png) |
+| ![Onbording 2](https://user-images.githubusercontent.com/93929557/216771285-2702254d-4c01-456d-bb6c-3e4f70f4e28f.png) | ![Onbording 3](https://user-images.githubusercontent.com/93929557/216771286-81ba9531-c554-4c6b-98aa-6e69045892bf.png) |
 
-    <td><img src="img2.png" alt="2" width = 360px height = 640px></td>
-   </tr> 
-   <tr>
-      <td><img src="./Scshot/cab_arrived.png" alt="3" width = 360px height = 640px></td>
 
-      <td><img src="./Scshot/trip_end.png" align="right" alt="4" width = 360px height = 640px>
-  </td>
-  </tr>
-</table>
+
 
 ## Maquette
 
