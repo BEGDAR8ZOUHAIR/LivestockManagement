@@ -83,8 +83,8 @@ const DashboardScreen = () => {
         />
       </View>
       <ImageBackground
-        source={require("../assets/farmer.png")}
-        style={{ width: "100%", height: "100%"  , resizeMode: "cover" , justifyContent: "center" , opacity: 0.7}}
+        source={require("../assets/dashboard.png")}
+        style={{ width: "100%", height: "100%" }}
       ></ImageBackground>
     </View>
   );
