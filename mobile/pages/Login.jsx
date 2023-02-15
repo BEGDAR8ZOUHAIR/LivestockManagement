@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   Alert,
+  ScrollView,
 } from "react-native";
 
 const LoginScreen = () => {
@@ -20,7 +21,7 @@ const LoginScreen = () => {
       const res = await fetch("http://192.168.9.30:5000/client/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
@@ -28,9 +29,12 @@ const LoginScreen = () => {
           password,
         }),
       });
-      const data = await res.text();
-      if (!data.email || !data.password) {
-        Alert.alert(data.error);
+      const data = await res.json();
+      if (data.error)
+      {
+        
+        Alert.alert("Error", data.error, [{ text: "OK" }]);
+      
       } else {
         navigation.navigate("Home");
       }
@@ -40,6 +44,7 @@ const LoginScreen = () => {
   };
 
   return (
+      <ScrollView>
     <View style={styles.container}>
       <Image
         style={{ width: 200, height: 250 , marginBottom: 10 }}
@@ -76,8 +81,9 @@ const LoginScreen = () => {
             <Text style={styles.registerLink}> Register now</Text>
           </Text>
         </TouchableOpacity>
-      </View>
+        </View>
     </View>
+      </ScrollView>
   );
 };
 

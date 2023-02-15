@@ -7,11 +7,15 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  Alert,
+  ScrollView,
 } from "react-native";
 
 const Register = () => {
   const navigation = useNavigation();
-  const [userName, setUserName] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [cin, setCin] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,13 +29,17 @@ const Register = () => {
         },
         body: JSON.stringify({
           fullName,
+          cin,
+          phoneNumber,
           email,
           password,
         }),
       });
       const data = await res.json();
-      if (data.error) {
-        alert(data.error);
+      if (data.error)
+      {
+        Alert.alert("Error", data.error, [{ text: "OK" }]);
+
       } else {
         // Naviguer vers la page d'accueil de l'application si l'enregistrement réussi
         navigation.navigate("Home");
@@ -42,6 +50,7 @@ const Register = () => {
   };
 
   return (
+    <ScrollView>
     <View style={styles.container}>
       <Image
         // style={{ width: 300, height: 300 }}
@@ -52,12 +61,29 @@ const Register = () => {
       <View style={styles.formContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Username"
+          placeholder="Full Name"
           keyboardType=""
           autoCapitalize="none"
-          value={userName}
-          onChangeText={(text) => setUserName(text)}
+          value={fullName}
+          onChangeText={(text) => setFullName(text)}
         />
+        <TextInput
+          style={styles.input}
+          placeholder="Cin"
+          keyboardType=""
+          autoCapitalize="none"
+          value={cin}
+          onChangeText={(text) => setCin(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Phone Number"
+          keyboardType=""
+          autoCapitalize="none"
+          value={phoneNumber}
+          onChangeText={(text) => setPhoneNumber(text)}
+        />
+
         <TextInput
           style={styles.input}
           placeholder="Email"
@@ -84,7 +110,8 @@ const Register = () => {
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+      </View>
+      </ScrollView>
   );
 };
 
