@@ -7,6 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 
 const Tab = createBottomTabNavigator();
+
 const Tabs = () => {
   return (
     <Tab.Navigator
@@ -24,11 +25,9 @@ const Tabs = () => {
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
+        tabBarActiveTintColor: "#3ED400",
+        tabBarInactiveTintColor: "gray",
       })}
-      tabBarOptions={{
-        activeTintColor: "#3ED400",
-        inactiveTintColor: "gray",
-      }}
     >
       <Tab.Screen
         name="Home"
