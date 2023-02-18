@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, } from 'react-native';
+import { StyleSheet, Text, View, LogBox } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaView } from 'react-native';
@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 export default function App()
 {
-
+  LogBox.ignoreLogs(['Remote debugger']);
 
   return (
 
