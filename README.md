@@ -6,6 +6,10 @@ Helps dairy and beef cattle farmers manage their farms with ease and accuracy. T
 ## Maquette
 https://www.figma.com/file/DNLwlzU6Wwixnj8rPXtoP9/Cattle-ZOO?node-id=0%3A1&t=A1S4YLzSlLml7dXD-1
 
+
+## ADOBE XD
+https://xd.adobe.com/view/1fe38961-3c23-4884-8ed4-950ac0a5c723-4ab0/
+
 | Image | Image |
 |-------|-------|
 | ![Login](https://user-images.githubusercontent.com/93929557/216771281-1de7e37f-2b21-46fb-9819-9e2936c2d944.png) |![Register](https://user-images.githubusercontent.com/93929557/216771299-42fa9f0a-d34d-4dfe-8190-036a57ffec40.png) |
