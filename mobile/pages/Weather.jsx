@@ -19,6 +19,7 @@ import {
 import * as Location from "expo-location";
 import axios from "axios";
 import SunIcon from "../assets/dashboard.png";
+
 import { API_KEY } from "../utils/weatherApiKey";
 
 const hours = [
@@ -134,7 +135,7 @@ const Weather = () => {
               <MaterialCommunityIcons
                 name="water-outline"
                 size={24}
-                color="#fff"
+                color="#000"
               />
             </View>
             <View style={styles.wind}>
@@ -143,7 +144,7 @@ const Weather = () => {
               <MaterialCommunityIcons
                 name="wind-turbine"
                 size={24}
-                color="#fff"
+                color="#000"
               />
             </View>
             <FlatList
@@ -211,7 +212,6 @@ const styles = StyleSheet.create({
     textShadowColor: "rgba(0, 0, 0, 0.50)",
     textShadowOffset: { width: -1, height: 2 },
     textShadowRadius: 5,
-    
   },
   typeWeather: {
     fontSize: 20,
@@ -227,12 +227,15 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginTop: 10,
     color: "#000",
+    backgroundColor: "#ECECEC",
   },
   wind: {
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-around",
     color: "#000",
+    backgroundColor: "#ECECEC",
+    
   },
   hourContainer: {
     justifyContent: "space-between",
