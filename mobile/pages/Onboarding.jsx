@@ -22,8 +22,8 @@ const Done = ({ ...props }) => (
 const OnboardingScreen = ({ navigation }) => {
   return (
     <Onboarding
-      onSkip={() => navigation.replace("Login")}
-      onDone={() => navigation.navigate("Login")}
+      onSkip={() => navigation.replace("Nav")}
+      onDone={() => navigation.navigate("Nav")}
       SkipButtonComponent={Skip}
       NextButtonComponent={Next}
       DoneButtonComponent={Done}

@@ -120,38 +120,7 @@ const Weather = () => {
 
         {Object.keys(weather).length > 0 ? (
           <>
-            <View style={styles.dateContainer}>
-              <Text style={styles.dateContainer}>
-                {new Date().toLocaleDateString([], {
-                  month: "short",
-                  day: "numeric",
-                })}{" "}
-                {new Date().toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </Text>
-            </View>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ color: "#fff" }}>
-                {Math.round(weather?.main?.temp_max - 273.15)}°
-              </Text>
-              <Ionicons name="sunny-outline" size={20} color="#fff" />
-              <Text style={{ color: "#fff" }}>
-                {Math.round(weather?.main?.temp_min - 273.15)}°{" "}
-              </Text>
-              <Ionicons name="cloudy-night-outline" size={20} color="#fff" />
-            </View>
-            <View style={styles.locationContainer}>
-              <Text style={styles.locationContainer}>{weather?.name}</Text>
-              <Ionicons name="ios-location-outline" size={24} color="#fff" />
-            </View>
+         
             <View style={styles.weatherContainer}>
               <Text style={styles.temp}>
                 {Math.round(weather?.main?.temp - 273.15)}°C
@@ -179,8 +148,6 @@ const Weather = () => {
                 color="#fff"
               />
             </View>
-
-            {/* <View style={styles.hr} /> */}
             <FlatList
               extraData={weatherData}
               removeClippedSubviews={false}
@@ -219,20 +186,13 @@ const styles = StyleSheet.create({
   container: {
     position: "relative",
     alignItems: "center",
-    marginTop: 20,
-    flexDirection: "row",
-    justifyContent: "center",
+    marginTop: 10,
   },
   icon: {
     position: "absolute",
     right: 40,
     top: "50%",
     transform: [{ translateY: -18 }],
-  },
-  dateContainer: {
-    alignItems: "center",
-    fontSize: 20,
-    color: "#fff",
   },
   textInput: {
     width: 300,
@@ -242,32 +202,20 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "#fff",
   },
-  locationContainer: {
-    marginVertical: 15,
-    alignItems: "center",
-    fontSize: 20,
-    flexDirection: "row",
-    justifyContent: "center",
-    color: "#fff",
-  },
   weatherContainer: {
     color: "#fff",
     alignItems: "center",
   },
   temp: {
-    fontSize: 100,
+    fontSize: 20,
     color: "#fff",
-    alignItems: "center",
-    // shadow of text
     textShadowColor: "rgba(0, 0, 0, 0.50)",
     textShadowOffset: { width: -1, height: 2 },
     textShadowRadius: 5,
   },
   typeWeather: {
-    fontSize: 25,
+    fontSize: 20,
     marginHorizontal: 5,
-    alignItems: "center",
-    flexDirection: "row",
     color: "#fff",
     textShadowColor: "rgba(0, 0, 0, 0.50)",
     textShadowOffset: { width: -1, height: 2 },
@@ -286,18 +234,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     color: "#fff",
   },
-  day: {
-    flexDirection: "row",
-    marginHorizontal: 5,
-  },
   hourContainer: {
     justifyContent: "space-between",
     marginHorizontal: 5,
-    marginVertical: 30,
     backgroundColor: "white",
     borderRadius: 10,
     padding: 10,
-    marginTop: 50,
     // shadow
     shadowColor: "#000",
     shadowOffset: {
