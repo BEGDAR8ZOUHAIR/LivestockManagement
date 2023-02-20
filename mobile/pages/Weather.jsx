@@ -6,7 +6,6 @@ import {
   SafeAreaView,
   TextInput,
   Alert,
-  ScrollView,
   FlatList,
   Image,
 } from "react-native";
@@ -115,6 +114,7 @@ const Weather = () => {
             name="check"
             size={35}
             color="black"
+            
           />
         </View>
 
@@ -217,7 +217,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    marginVertical: 50,
     position: "relative",
     alignItems: "center",
     marginTop: 20,
@@ -228,7 +227,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 40,
     top: "50%",
-    transform: [{ translateY: -10 }],
+    transform: [{ translateY: -18 }],
   },
   dateContainer: {
     alignItems: "center",
@@ -239,7 +238,6 @@ const styles = StyleSheet.create({
     width: 300,
     height: 50,
     padding: 10,
-    marginTop: 20,
     marginBottom: 10,
     borderRadius: 10,
     backgroundColor: "#fff",

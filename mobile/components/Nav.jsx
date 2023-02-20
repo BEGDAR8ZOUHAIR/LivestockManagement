@@ -15,7 +15,7 @@ const Tabs = () => {
           if (route.name === "Animal") {
             iconName = focused ? "cow" : "cow-off";
             
-          } else if (route.name === "Dashboard") {
+          } else if (route.name === "Profile") {
             iconName = focused
               ? "account-cowboy-hat"
               : "account-cowboy-hat-outline";
@@ -36,7 +36,7 @@ const Tabs = () => {
 
       <>
         <Tab.Screen
-          name="Dashboard"
+          name="Profile"
           component={Dashboard}
           options={{ headerShown: false }}
         />
