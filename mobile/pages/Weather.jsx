@@ -114,13 +114,11 @@ const Weather = () => {
             name="check"
             size={35}
             color="black"
-            
           />
         </View>
 
         {Object.keys(weather).length > 0 ? (
           <>
-         
             <View style={styles.weatherContainer}>
               <Text style={styles.temp}>
                 {Math.round(weather?.main?.temp - 273.15)}°C
@@ -204,7 +202,8 @@ const styles = StyleSheet.create({
   },
   weatherContainer: {
     color: "#fff",
-    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
   },
   temp: {
     fontSize: 20,
@@ -212,6 +211,7 @@ const styles = StyleSheet.create({
     textShadowColor: "rgba(0, 0, 0, 0.50)",
     textShadowOffset: { width: -1, height: 2 },
     textShadowRadius: 5,
+    
   },
   typeWeather: {
     fontSize: 20,
@@ -226,13 +226,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 10,
-    color: "#fff",
+    color: "#000",
   },
   wind: {
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-around",
-    color: "#fff",
+    color: "#000",
   },
   hourContainer: {
     justifyContent: "space-between",
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 10,
     padding: 10,
-    // shadow
+    marginTop: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
