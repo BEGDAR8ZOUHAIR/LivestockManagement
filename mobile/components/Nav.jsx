@@ -1,10 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../pages/Home";
-// import Login from "../pages/Login";
-// import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
-import { Ionicons } from "@expo/vector-icons";
-import React, { useState } from "react";
+// import { Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,38 +12,29 @@ const Tabs = () => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
-          if (route.name === "Home") {
-            iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "Login") {
-            iconName = focused ? "log-in" : "log-in-outline";
-          } else if (route.name === "Register") {
-            iconName = focused ? "person-add" : "person-add-outline";
+          if (route.name === "Animal") {
+            iconName = focused ? "cow" : "cow-off";
+            
           } else if (route.name === "Dashboard") {
-            iconName = focused ? "list" : "list-outline";
+            iconName = focused
+              ? "account-cowboy-hat"
+              : "account-cowboy-hat-outline";
           }
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return (
+            <MaterialCommunityIcons name={iconName} size={size} color={color} />
+          );
         },
         tabBarActiveTintColor: "#3ED400",
         tabBarInactiveTintColor: "gray",
       })}
     >
       <Tab.Screen
-        name="Home"
+        name="Animal"
         component={Home}
         options={{ headerShown: false }}
       />
-      {/* <Tab.Screen
-        name="Login"
-        component={Login}
-        options={{ headerShown: false }}
-      /> */}
 
       <>
-        {/* <Tab.Screen
-          name="Register"
-          component={Register}
-          options={{ headerShown: false }}
-        /> */}
         <Tab.Screen
           name="Dashboard"
           component={Dashboard}

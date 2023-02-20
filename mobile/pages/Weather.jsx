@@ -33,7 +33,7 @@ const hours = [
   "06:00",
 ];
 
-const Home = () => {
+const Weather = () => {
   const [city, setCity] = useState("Safi");
   const [weather, setWeather] = useState({});
   const [weatherData, setWeatherData] = useState([]);
@@ -321,4 +321,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Weather;
