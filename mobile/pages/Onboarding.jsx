@@ -1,85 +1,104 @@
-import React from "react";
-import { Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import Onboarding from "react-native-onboarding-swiper";
 
-const Skip = ({ ...props }) => (
-  <TouchableOpacity style={{ marginHorizontal: 10 }} {...props}>
-    <Text style={styles.textStyle}>Skip</Text>
-  </TouchableOpacity>
-);
-const Next = ({ ...props }) => (
-  <TouchableOpacity style={{ marginHorizontal: 10 }} {...props}>
-    <Text style={styles.textStyle}>Next</Text>
-  </TouchableOpacity>
-);
+ import React from "react";
+import { View , Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import Swiper from "react-native-swiper";
 
-const Done = ({ ...props }) => (
-  <TouchableOpacity style={{ marginHorizontal: 10 }} {...props}>
-    <Text style={styles.textStyle}>Done</Text>
-  </TouchableOpacity>
-);
 
-const OnboardingScreen = ({ navigation }) => {
+export default function Onboarding({ navigation })
+{
+  const onboarding = [
+    {
+      id: 1, title: "Welcome to Cattle Zoo", subtitle: "The best place to find your cattle", image: require("../assets/dd.png")
+    },
+    {
+      id: 2, title: "Controling your cattle's health", subtitle: "You can control your cattle's health by using our app", image: require("../assets/dd2.png")
+    },
+    {
+      id: 3, title: "Cattle's health is our priority", subtitle: "We care about your cattle's health", image: require("../assets/dd3.png")
+    },
+  ];
   return (
-    <Onboarding
-      onSkip={() => navigation.replace("Nav")}
-      onDone={() => navigation.navigate("Nav")}
-      SkipButtonComponent={Skip}
-      NextButtonComponent={Next}
-      DoneButtonComponent={Done}
-      pages={[
-        {
-          backgroundColor: "#fff",
-          image: (
-            <Image
-              source={require("../assets/dd.png")}
-              // style={{ width: 200, height: 200 }}
-            />
-          ),
-          title: "Welcome to Cattle Zoo",
-          subtitle: "The best place to find your cattle ",
-        },
-        {
-          backgroundColor: "#fff",
-          image: (
-            <Image
-              source={require("../assets/dd2.png")}
-              // style={{ width: 200, height: 200 }}
-            />
-          ),
-          title: "Controling your cattle's health ",
-          subtitle: "You can control your cattle's health by using our app",
-        },
-        {
-          backgroundColor: "#fff",
-          image: (
-            <Image
-              source={require("../assets/dd3.png")}
-              // style={{ width: 200, height: 200 }}
-            />
-          ),
-          title: "Cattle's health is our priority",
-          subtitle: "We care about your cattle's health",
-        },
-      ]}
-    />
-  );
-};
+    <View style={styles.container}>
+      <Swiper paginationStyle={{ 
+        position: "absolute",
+        bottom: 50,
+      }}
+        activeDotColor="#3ED400"
+        activeDotStyle={{ width: 20, height: 8 }}
+        dotColor="gray"
+        loop={false}
+      >
+        {onboarding.map((item) => (
+          <View style={styles.slide} key={item.id}>
+            <Image source={item.image} style={styles.image} />
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.subtitle}>{item.subtitle}</Text>
+          </View>
+        ))}
+      </Swiper>
 
-export default OnboardingScreen;
+      <TouchableOpacity
+        style={{
+          backgroundColor: "#3ED400",
+          paddingVertical: 15,
+          borderRadius: 10,
+          marginHorizontal: 20,
+          marginBottom: 20,
+        }}
+        onPress={() => navigation.navigate("Nav")}
+      >
+        <Text
+          style={{
+            color: "#fff",
+            fontWeight: "bold",
+            fontSize: 18,
+            textAlign: "center",
+          }}
+        >
+          Get Started
+        </Text>
+      </TouchableOpacity>
+
+
+
+
+    
+     </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
+  },
+  slide: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
-  textStyle: {
-    fontSize: 16,
-    color: "#4E5153",
-    backgroundColor: "#3ED400",
-    paddingHorizontal: 20,
-    paddingVertical: 5,
-    borderRadius: 20,
+  image: {
+    sizeMode: "contain",
   },
+  title: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#333",
+    textAlign: "center",
+    marginTop: 20,
+  },
+  subtitle: {
+    fontSize: 18,
+    color: "#333",
+    textAlign: "center",
+    marginTop: 20,
+  },
+
+
+
 });
+
+
+
+
+      

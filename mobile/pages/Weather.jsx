@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 40,
     top: "50%",
-    transform: [{ translateY: -18 }],
+    transform: [{ translateY: -10 }],
   },
   textInput: {
     width: 300,
@@ -200,6 +200,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 10,
     backgroundColor: "#fff",
+    marginTop: 20,
   },
   weatherContainer: {
     color: "#fff",
@@ -226,15 +227,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 10,
-    color: "#000",
-    backgroundColor: "#ECECEC",
+   
   },
   wind: {
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-around",
-    color: "#000",
-    backgroundColor: "#ECECEC",
+
     
   },
   hourContainer: {
