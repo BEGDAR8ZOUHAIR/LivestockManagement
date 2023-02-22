@@ -31,7 +31,7 @@ const Navbar = () => {
             <nav className="navbar">
 				<div className="navbar-container">
 					<Link to="/" className="navbar-logo"  >
-						Home
+						Cattle Zoo
 					</Link>
 					<div className="menu-icon" onClick = {handleClick}>
 						  {click ? <ImCross className="icon"  /> :  <MdMenu  className="icon"/>  } 

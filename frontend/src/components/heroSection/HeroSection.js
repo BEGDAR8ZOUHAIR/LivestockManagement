@@ -10,9 +10,9 @@ const HeroSection = ()=>{
         <div className="hero-container">
             <video src="/video/farm.mp4" autoPlay loop muted></video>
             <h1>
-                Laddha Farm
+                Wlecome to Cattle Zoo
             </h1>
-            <p>What are you waiting for?</p>
+            <p>Download our app and get started</p>
             
 			<div className="hero-btns" >
 				<Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">
