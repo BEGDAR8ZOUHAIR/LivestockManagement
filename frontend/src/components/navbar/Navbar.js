@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { MdMenu } from 'react-icons/md';
 import { ImCross } from 'react-icons/im';
-import { Button } from './Button';
-import "./Navbar.css";
-import Home from './pages/home'
+import { Button } from '../button/Button';
+import "../navbar/Navbar.css";
+import Home from '../pages/home'
 
 const Navbar = () => {
 	const [click, setClick] = useState(false); 

@@ -17,7 +17,6 @@
 
 .services {
   background: linear-gradient(23 24 24);
-  background-image:url('./images/img-1.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: fill;
@@ -27,7 +26,6 @@
 
 .products {
   background: linear-gradient(23 24 24);
-  background-image:url('./images/img-2.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: fill;
@@ -36,7 +34,6 @@
 }
 .sign-up {
   background: linear-gradient(23 24 24);
-  background-image:url('./images/img-3.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: fill;
