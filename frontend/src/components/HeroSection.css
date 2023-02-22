@@ -1,0 +1,47 @@
+video{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+.hero-container {
+    background-image: url('../images/img-1.jpeg')  center no-repeat;
+    height: 100vh;
+    width: 100%;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+.hero-container > h1 {
+    font-size: 100px;
+    color: #fff;
+    padding-bottom: 20px;
+}
+
+.hero-container > p {
+    color:#fff;
+    font-size: 38px;
+    font-family: cursive;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width:960px){
+    .hero-container > h1{
+        font-size: 70px;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .hero-container >h1{
+        font-size: 50px;
+    }
+    .hero-container >p{
+        font-size: 30px;
+    }
+}
