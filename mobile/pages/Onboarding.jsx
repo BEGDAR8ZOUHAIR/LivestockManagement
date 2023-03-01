@@ -45,7 +45,7 @@ export default function Onboarding({ navigation })
           marginHorizontal: 20,
           marginBottom: 20,
         }}
-        onPress={() => navigation.navigate("Nav")}
+        onPress={() => navigation.navigate("Login")}
       >
         <Text
           style={{

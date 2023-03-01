@@ -7,6 +7,9 @@ const {
     authClient,
     getClient,
     updateClient,
+    getClients,
+
+
    
 } = require("../controller/clientController");
 
@@ -18,6 +21,7 @@ router.route("/login").post(authClient);
 router.route("/register").post(registerClient);
 router.route("/update/:id").put(protect, updateClient);
 router.route("/getClient/:id").get(protect, getClient);
+router.route("/getClients").get(getClients);
 
 // export route file
 module.exports = router;

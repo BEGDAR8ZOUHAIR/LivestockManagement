@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../pages/Home";
-import Dashboard from "../pages/Dashboard";
+import Profile from "../pages/Profile";
 // import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -14,7 +14,6 @@ const Tabs = () => {
           let iconName;
           if (route.name === "Animal") {
             iconName = focused ? "cow" : "cow-off";
-            
           } else if (route.name === "Profile") {
             iconName = focused
               ? "account-cowboy-hat"
@@ -37,7 +36,7 @@ const Tabs = () => {
       <>
         <Tab.Screen
           name="Profile"
-          component={Dashboard}
+          component={Profile}
           options={{ headerShown: false }}
         />
       </>

@@ -22,7 +22,6 @@ const Register = () => {
   const handleRegister = async () => {
     try {
       const res = await fetch("http://192.168.9.30:5000/client/register", {
-        // const res = await fetch("http://192.168.0.171:5000/client/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,8 +41,7 @@ const Register = () => {
         Alert.alert("Error", data.error, [{ text: "OK" }]);
 
       } else {
-        // Naviguer vers la page d'accueil de l'application si l'enregistrement réussi
-        navigation.navigate("Home");
+        navigation.navigate("Nav");
       }
     } catch (err) {
       console.log(err);
