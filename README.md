@@ -19,6 +19,7 @@ https://xd.adobe.com/view/1fe38961-3c23-4884-8ed4-950ac0a5c723-4ab0/
 
 
 
+
 ## Features
 
 - Registering and tracking cattle family tree.
@@ -44,6 +45,26 @@ https://xd.adobe.com/view/1fe38961-3c23-4884-8ed4-950ac0a5c723-4ab0/
 - Open the application
 - Create an account
 - Start managing your cattle
+
+## eas build expo 
+
+Run this command to build your project: 
+
+eas init 
+
+FOR ANDROID 🤖
+
+eas build --profile development --platform android
+
+FOR IOS 🤖
+
+eas build --profile development --platform ios
+
+## Expo Doctor   🏴‍☠️
+Run this command to fix any issues with your project: 🏴‍☠️
+expo doctor --fix-dependencies
+
+
 
 ## Usage
 
