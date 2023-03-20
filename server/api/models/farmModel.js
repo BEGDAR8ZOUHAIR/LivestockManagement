@@ -25,10 +25,7 @@ const farmSchema = mongoose.Schema(
     image: {
       type: String,
       required: [false, "Please enter image of farm"],
-    },
-
- 
-    
+    }, 
   },
   {
     timestamp: true,

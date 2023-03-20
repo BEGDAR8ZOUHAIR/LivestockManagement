@@ -1,8 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const Cattle = require("../models/cattleModel");
-const Client = require("../models/clientModel");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
+
 
 // @desc    Get all cattle
 // @route   GET /api/cattle
@@ -30,27 +28,46 @@ const getCattleById = asyncHandler(async (req, res) => {
 // @desc    Create cattle
 // @route   POST /api/cattle
 // @access  Private
-const createCattle = asyncHandler(async (req, res) => {
+const createCattle = asyncHandler(async (req, res) =>
+{
+    // client add cattle to farm
+    const {
+        name,
+        type,
+        age,
+        weight,
+        birthDate,
+        dateOfEntry,
+        obtainedFrom,
+        obtainedBy,
+        status,
+        mother,
+        father,
+        note,
+        image,
+    } = req.body;
+
     const cattle = new Cattle({
-        name: req.body.name,
-        type: req.body.type,
-        age: req.body.age,
-        weight: req.body.weight,
-        birthDate: req.body.birthDate,
-        dateOfEntry: req.body.dateOfEntry,
-        obtainedFrom: req.body.obtainedFrom,
-        obtainedBy: req.body.obtainedBy,
-        status: req.body.status,
-        mother: req.body.mother,
-        father: req.body.father,
-        note: req.body.note,
-        image: req.body.image,
+        name,
+        type,
+        age,
+        weight,
+        birthDate,
+        dateOfEntry,
+        obtainedFrom,
+        obtainedBy,
+        status,
+        mother,
+        father,
+        note,
+        image,
     });
 
-    const createdCattle = await cattle.save();
+    const createdCattle = await cattle.save();  
     res.status(201).json(createdCattle);
 }
 );
+
 
 // @desc    Update cattle
 // @route   PUT /api/cattle/:id
