@@ -6,7 +6,6 @@ const clientSchema = mongoose.Schema(
       type: String,
       required: [true, "Please enter your full name"],
     },
-    
     cin: {
       type: String,
       required: [true, "Please enter your cin"],

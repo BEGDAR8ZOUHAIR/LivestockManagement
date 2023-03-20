@@ -11,31 +11,51 @@ const catlleSchema = mongoose.Schema(
       type: String,
       required: [true, "Please enter type of cattle "],
     },
-    gender: {
-      type: String,
-      required: [true, "Please enter gender of cattle "],
+    age: {
+      type: Number,
+      required: [true, "Please enter age of cattle"],
     },
     weight: {
-      type: String,
-      required: [true, "Please enter weight of cattle "],
+      type: Number,
+      required: [true, "Please enter weight of cattle"],
     },
-    weight: {
-      type: String,
-      required: [true, "Please enter weight of cattle "],
+    birthDate: {
+      type: Date,
+      required: [true, "Please enter birth date of cattle"],
     },
-    weight: {
-      type: String,
-      required: [true, "Please enter weight of cattle "],
+    dateOfEntry: {
+      type: Date,
+      required: [true, "Please enter date of entry of cattle"],
     },
-    weight: {
+    obtainedFrom: {
       type: String,
-      required: [true, "Please enter weight of cattle "],
+      required: [true, "Please enter obtained from of cattle"],
     },
-    weight: {
+    obtainedBy: {
       type: String,
-      required: [true, "Please enter weight of cattle "],
+      required: [true, "Please enter obtained by of cattle"],
     },
-   
+    status: {
+      type: String,
+      required: [true, "Please enter status of cattle"],
+    },
+    mother: {
+      type: String,
+      required: [true, "Please enter mother of cattle"],
+    },
+    father: {
+      type: String,
+      required: [true, "Please enter father of cattle"],
+    },
+    note: {
+      type: String,
+      required: [true, "Please enter note of cattle"],
+    },
+    image: {
+      type: String,
+      required: [false, "Please enter image of cattle"],
+    },
+    
   },
   {
     timestamp: true,
