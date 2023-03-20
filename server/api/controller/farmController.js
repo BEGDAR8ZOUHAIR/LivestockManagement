@@ -101,12 +101,24 @@ const deleteFarm = asyncHandler(async (req, res) =>
 }
 );
 
+// @desc   total number of farms
+// @route   GET /api/farm/total
+// @access  Private
+const totalFarms = asyncHandler(async (req, res) =>
+{
+    const total = await Farm.countDocuments();
+    res.json(total);
+}
+);
+
+
 module.exports = {
     getFarms,
     getFarmById,
     createFarm,
     updateFarm,
     deleteFarm,
+    totalFarms,
 };
 
 

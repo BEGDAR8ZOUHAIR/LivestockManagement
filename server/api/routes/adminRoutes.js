@@ -16,6 +16,12 @@ const {
   totalClients,
 } = require("../controller/clientController");
 
+// get function from farm controller
+const {
+  getFarms,
+  getFarmById,
+  totalFarms,
+} = require("../controller/farmController");
 
 
 //  Protect all routes
@@ -32,6 +38,11 @@ router.route("/getAdmin").get(protect, getAdmin);
 router.route("/singleClient/:id").get(singleClient);
 router.route("/totalClients").get(protect, totalClients);
 router.route("/getClients").get(protect, getClients);
+
+// Create route for farm
+router.route("/totalFarms").get(protect, totalFarms);
+router.route("/getFarms").get(protect, getFarms);
+router.route("/getFarmById/:id").get(protect, getFarmById);
 
 
 // export route file
