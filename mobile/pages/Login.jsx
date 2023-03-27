@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {
   StyleSheet,
   View,
@@ -9,39 +11,71 @@ import {
   Image,
   Alert,
   ScrollView,
+  ActivityIndicator,
 } from "react-native";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [userId, setUserId] = useState("");
+  const [emailValid, setEmailValid] = useState(true);
+  const [passwordValid, setPasswordValid] = useState(true);
   const navigation = useNavigation();
 
-  const handleLogin = async () => {
+   const handleLogin = async () => {
+
+    setLoading(true);
     try {
       const res = await fetch("http://192.168.9.30:5000/client/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
+
         },
         body: JSON.stringify({
           email,
           password,
         }),
       });
-      const data = await res.json();
-      if (data.error)
-      {
-        
-        Alert.alert("Error", data.error, [{ text: "OK" }]);
-      
-      } else {
+
+      if (res.status === 401) {
+        setEmailValid(false);
+        setPasswordValid(false);
+      } else if (res.status === 200) {
+        const data = await res.json();
+        console.log(data);
+        setUserId(data.id);
+        await AsyncStorage.setItem("userId", data.id);
         navigation.navigate("Nav");
+      } else {
+        Alert.alert("Error", "Something went wrong. Please try again.", [
+          { text: "OK" },
+        ]);
       }
     } catch (err) {
       console.log(err);
+      Alert.alert("Error", "Something went wrong. Please try again.", [
+        { text: "OK" },
+      ]);
+    } finally {
+      setLoading(false);
     }
   };
+
+    const handleEmailChange = (value) => {
+    setEmail(value);
+    setEmailValid(true);
+  };
+
+  const handlePasswordChange = (value) => {
+    setPassword(value);
+    setPasswordValid(true);
+
+  };
+
+
 
   return (
       <ScrollView>
@@ -52,36 +86,50 @@ const LoginScreen = () => {
       />
 
       <Text style={styles.title}>Welcom to Cattle Zoo</Text>
-      <View style={styles.formContainer}>
-        {/* <Image source={require("../assets/email.png")} style={styles.icon} /> */}
+        <View style={styles.formContainer}>
         <TextInput
-          style={styles.input}
+          style={[
+            styles.input,
+            !emailValid && {
+              borderColor: "red", borderWidth: 2,
+            },
+          ]}
           placeholder="Email"
           keyboardType="email-address"
           autoCapitalize="none"
           value={email}
-          onChangeText={setEmail}
+          onChangeText={handleEmailChange}
         />
       </View>
       <View style={styles.formContainer}>
-        {/* <Image source={require("../assets/email.png")} style={styles.icon} /> */}
         <TextInput
-          style={styles.input}
+          style={[
+            styles.input,
+            !passwordValid && { borderColor: "red", borderWidth: 2 },
+          ]}
           placeholder="Password"
           secureTextEntry={true}
           value={password}
-          onChangeText={setPassword}
+          onChangeText={handlePasswordChange}
         />
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+        </View>
+        {loading ? (
+        <ActivityIndicator size="large" color="#3ED400" /> 
+        ) : (
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
+              <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
+        )}
+        <TouchableOpacity
+          style={{ marginTop: 20 }}
+          onPress={() => navigation.navigate("Register")}
+        >
           <Text style={styles.registerText}>
             Don't have an account?{" "}
-            <Text style={styles.registerLink}> Register now</Text>
+            <Text style={styles.registerLink}>Register</Text>
           </Text>
         </TouchableOpacity>
-        </View>
+
     </View>
       </ScrollView>
   );
@@ -112,27 +160,30 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    height: 40,
     backgroundColor: "#3ED400",
-    justifyContent: "center",
-    alignItems: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     borderRadius: 4,
+    marginTop: 20,
+    width: "85%",
   },
   buttonText: {
     color: "#fff",
-    fontWeight: "bold",
+    textAlign: "center",
     fontSize: 16,
-    justifyContent: "center",
-    alignItems: "center",
+    fontWeight: "bold",
   },
   registerText: {
-    marginTop: 16,
     textAlign: "center",
+    fontSize: 16,
   },
   registerLink: {
     color: "#3ED400",
     fontWeight: "bold",
   },
+
+
+ 
 });
 
 export default LoginScreen;
