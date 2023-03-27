@@ -21,7 +21,8 @@ const HeroSection = ()=>{
 				<Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">
 					Go For Products
 				</Button>
-			</div>
+            </div>
+           
         </div>
     );
 

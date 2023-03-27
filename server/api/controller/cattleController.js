@@ -11,6 +11,7 @@ const getCattle = asyncHandler(async (req, res) => {
 }
 );
 
+
 // @desc    Get cattle by id
 // @route   GET /api/cattle/:id
 // @access  Private
@@ -24,6 +25,7 @@ const getCattleById = asyncHandler(async (req, res) => {
     }
 }
 );
+
 
 // @desc    Create cattle
 // @route   POST /api/cattle
@@ -114,6 +116,7 @@ const updateCattle = asyncHandler(async (req, res) => {
     }
 }
 );
+
 
 // @desc    Delete cattle
 // @route   DELETE /api/cattle/:id

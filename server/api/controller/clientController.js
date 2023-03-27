@@ -1,7 +1,7 @@
-const asyncHandler = require("express-async-handler");
+const asyncHandler = require("express-async-handler"); 
 const Client = require("../models/clientModel");
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");   
 
 // @desc    Register a new client
 // @route   POST /client/register
@@ -11,7 +11,6 @@ const registerClient = asyncHandler(async (req, res) =>
 {
   const { fullName, email, password, cin, phoneNumber } = req.body;
   
-
   //   check if any of the fields are empty
   if (!fullName || !email || !password || !cin ||  !phoneNumber)
   {
@@ -114,8 +113,6 @@ const updateClient = asyncHandler(async (req, res) =>
   res.status(200).json(updateProfile);
 });
 
-
-
 // Generate JWT
 const generateToken = (id) =>
 {
@@ -123,7 +120,6 @@ const generateToken = (id) =>
     expiresIn: "1d",
   });
 };
-
 
 // @desc    Get a single client
 // @route   GET /client/singleClient/:id
@@ -162,5 +158,4 @@ module.exports = {
   authClient,
   getClient,
   registerClient,
-
 };
