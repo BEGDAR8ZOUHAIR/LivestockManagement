@@ -8,6 +8,7 @@ const {
     getClient,
     updateClient,
     getClients,
+    getClientById,
 
 } = require("../controller/clientController");
 
@@ -39,6 +40,7 @@ router.route("/register").post(registerClient);
 router.route("/update/:id").put(protect, updateClient);
 router.route("/getClient/:id").get(protect, getClient);
 router.route("/getClients").get(getClients);
+router.route("/getClientById/:id").get(getClientById);
 
 // Create route for farm
 router.route("/totalFarms").get(protect, totalFarms);

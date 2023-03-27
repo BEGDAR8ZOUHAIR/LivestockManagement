@@ -121,14 +121,25 @@ const generateToken = (id) =>
   });
 };
 
-// @desc    Get a single client
+// @desc    Get client by id
 // @route   GET /client/singleClient/:id
 // @access  Private
-const singleClient = asyncHandler(async (req, res) =>
+
+const getClientById = asyncHandler(async (req, res) =>
 {
-  const client = await Client.findById(req.params.id)
-  res.send(client);
+  const client = await Client.findById(req.params.id);
+
+  if (client)
+  {
+    res.json(client);
+  } else
+  {
+    res.status(404);
+    throw new Error("Client not found");
+  }
+
 });
+
 
 // @desc    Get all clients
 // @route   GET /client/clients
@@ -151,11 +162,11 @@ const totalClients = asyncHandler(async (req, res) =>
 });
 
 module.exports = {
-  singleClient,
   getClients,
   totalClients,
   updateClient,
   authClient,
   getClient,
   registerClient,
+  getClientById,
 };
