@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import
-  {
-    View,
-    Text,
-    StyleSheet,
-    ImageBackground,
-    TouchableOpacity,
-    ActivityIndicator,
-    ScrollView,
-  } from "react-native";
+{
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  ActivityIndicator,
+
+} from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -73,142 +73,117 @@ const ProfileScreen = () =>
     );
   }
 
+
+
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require("../assets/dashboard.png")}
-        style={styles.bgImage}
-      >
-        <View style={styles.header}>
-          <Text style={styles.title}>Profile</Text>
-          <TouchableOpacity
-            style={styles.editButton}
-            onPress={handleEditProfile}
-          >
-            <Text style={styles.editButtonText}>Edit</Text>
-          </TouchableOpacity>
+    <ScrollView style={styles.container}>
+      <View style={styles.headerContainer}>
+
+        <Image
+          style={styles.coverPhoto}
+          source={require("../assets/cover.jpg")}
+        />
+        <View style={styles.profileContainer}>
+          <Image
+            style={styles.profilePhoto}
+            source={require("../assets/profile.png")}
+          />
+          <Text style={styles.nameText}>{user.fullName}</Text>
         </View>
-        <ScrollView contentContainerStyle={styles.scrollViewContent}>
-          <>
-            <View style={styles.information}>
-              <Text style={styles.fullName}>{user.fullName}</Text>
-              <Text style={styles.email}>{user.email}</Text>
-              <Text style={styles.phoneNumber}>{user.phoneNumber}</Text>
-              <Text style={styles.cin}>{user.cin}</Text>
-              <TouchableOpacity
-                style={styles.logoutButton}
-                onPress={handleLogout}
-              >
-                <Text style={styles.logoutButtonText}>Logout</Text>
-              </TouchableOpacity>
-            </View>
-          </>
-        </ScrollView>
-      </ImageBackground>
-    </View>
+      </View>
+      <View style={styles.bioContainer}>
+        <Text style={styles.bioText}>
+          {user.email}
+        </Text>
+      </View>
+      <View style={styles.statsContainer}>
+        <View style={styles.statContainer}>
+          <Text style={styles.statCount}>{user.phoneNumber}</Text>
+          <Text style={styles.statLabel}>{user.cin}</Text>
+        </View>
+      </View>
+      <TouchableOpacity style={styles.button} onPress={handleEditProfile}>
+        <Text style={styles.buttonText}>Edit Profile</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonlogout} onPress={handleLogout}>
+        <Text style={styles.buttonText}>Logout</Text>
+      </TouchableOpacity>
+    </ScrollView>
+
   );
 };
 
-
-
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
-  bgImage: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
+  headerContainer: {
+    alignItems: 'center',
   },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+  coverPhoto: {
+    width: '100%',
+    height: 200,
+  },
+  profileContainer: {
+    alignItems: 'center',
+    marginTop: -50,
+  },
+  profilePhoto: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+  },
+  nameText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  bioContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
     marginHorizontal: 20,
     marginTop: 20,
   },
-  title: {
-    fontSize: 30,
-    fontWeight: "bold",
-    color: "#fff",
-    bordeShadowColor: "#000",
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 10,
-
-
+  bioText: {
+    fontSize: 16,
+    color: '#999',
   },
-  editButton: {
-    backgroundColor: "#fff",
-    padding: 10,
-    borderRadius: 10,
-  },
-  editButtonText: {
-    color: "#000",
-    fontWeight: "bold",
-  },
-  scrollViewContent: {
-    alignItems: "center",
-    justifyContent: "center",
-
-  },
-  information: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 120,
-  },
-  fullName: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#fff",
-    bordeShadowColor: "#000",
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 10,
-  },
-  email: {
-    fontSize: 15,
-    color: "#fff",
-    bordeShadowColor: "#000",
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 10,
-  },
-  phoneNumber: {
-    fontSize: 15,
-    color: "#fff",
-    bordeShadowColor: "#000",
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 10,
-  },
-  cin: {
-    fontSize: 15,
-    color: "#fff",
-    bordeShadowColor: "#000",
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 10,
-  },
-  logoutButton: {
-    backgroundColor: "#fff",
-    padding: 10,
-    borderRadius: 10,
+  statsContainer: {
+    flexDirection: 'row',
     marginTop: 20,
+    marginBottom: 20,
   },
-  logoutButtonText: {
-    color: "#000",
-    fontWeight: "bold",
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#000",
-    marginTop: 20,
-  },
-  loadingContainer: {
+  statContainer: {
+    alignItems: 'center',
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
-});
+  statCount: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  statLabel: {
+    fontSize: 16,
+    color: '#999',
+  },
+  button: {
+    backgroundColor: '#3ED400',
+    borderRadius: 5,
+    padding: 10,
+    marginHorizontal: 20,
+  },
+  buttonText: {
+    fontSize: 16,
+    color: '#fff',
+    textAlign: 'center',
+  },
+  buttonlogout: {
+    backgroundColor: '#FF0000',
+    borderRadius: 5,
+    padding: 10,
+    marginHorizontal: 20,
+    marginTop: 20,
+  },
+};
 
 export default ProfileScreen;
-
-

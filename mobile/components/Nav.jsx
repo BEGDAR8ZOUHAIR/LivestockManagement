@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
+import Settings from "../pages/Settings";
 
 const Tab = createBottomTabNavigator();
 
@@ -53,6 +54,36 @@ const Tabs = () => {
         }}
       />
       
+      <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                // top: 10,
+              }}
+            >
+              <Ionicons
+                name="settings"
+                size={focused ? 30 : 25}
+                color={focused ? "#3ED400" : "#748c94"}
+              />
+              <Text
+
+                style={{
+                  color: focused ? "#3ED400" : "#748c94",
+                  fontSize: 12,
+                }}
+              >
+                Settings
+              </Text>
+            </View>
+          ),
+        }}
+      />
       <Tab.Screen name="Profile" component={Profile}
         options={{
           tabBarIcon: ({ focused }) => (
