@@ -37,7 +37,7 @@ const { protect } = require("../middleware/authMiddleware");
 // Client routes
 router.route("/login").post(authClient);
 router.route("/register").post(registerClient);
-router.route("/update/:id").put( updateClient);
+router.route("/updateClient/:id").put( updateClient);
 router.route("/getClient/:id").get( getClient);
 router.route("/getClients").get(getClients);
 router.route("/getClientById/:id").get(getClientById);

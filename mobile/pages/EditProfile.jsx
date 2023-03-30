@@ -10,7 +10,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const EditProfileScreen = () => {
+const EditProfile = () => {
   const navigation = useNavigation();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -147,3 +147,16 @@ const styles = StyleSheet.create({
         backgroundColor: "#3ED400",
         padding: 10,
         borderRadius: 5,
+    },
+    saveButtonText: {
+        color: "#fff",
+        textAlign: "center",
+    },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
+
+export default EditProfile;

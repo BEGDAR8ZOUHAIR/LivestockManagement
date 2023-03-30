@@ -59,9 +59,9 @@ const ProfileScreen = () => {
       >
         <View style={styles.header}>
           <Text style={styles.title}>Profile</Text>
-          <TouchableOpacity style={styles.editButton}>
+          <TouchableOpacity style={styles.editButton}  onPress={() => navigation.navigate('EditProfile')}>
             <Text style={styles.editButtonText}>Edit</Text>
-            {/* onPress={() => navigation.navigate('EditProfile')} */}
+           
           </TouchableOpacity>
         </View>
         <ScrollView contentContainerStyle={styles.scrollViewContent}>

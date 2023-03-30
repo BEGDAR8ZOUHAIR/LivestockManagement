@@ -7,6 +7,7 @@ import { SafeAreaView } from 'react-native';
 import Onboarding from './pages/Onboarding';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import EditProfile from './pages/EditProfile';
 import Nav from './components/Nav';
 
 const Stack = createStackNavigator();
@@ -45,6 +46,13 @@ export default function App()
           <Stack.Screen
             name="Nav"
             component={Nav}
+            options={{
+              headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="EditProfile"
+            component={EditProfile}
             options={{
               headerShown: false
             }}
