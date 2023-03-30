@@ -18,6 +18,8 @@ const EditProfile = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [cin, setCin] = useState("");
+  const [refresh, setRefresh] = useState(false);
+
  
 
   useEffect(() => {
@@ -40,7 +42,7 @@ const EditProfile = () => {
             }
         }
         fetchUserData();
-    }, []);
+    }, [refresh]);
 
   const handleSave = async () => {
     const userId = await AsyncStorage.getItem('userId');
@@ -59,7 +61,7 @@ const EditProfile = () => {
         },
         body: JSON.stringify(data)
       });
-      navigation.goBack();
+      navigation.navigate('Profile', { user, setUser, setRefresh }); //
     } catch (error) {
       console.error(error);
     }
@@ -78,6 +80,9 @@ const EditProfile = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Edit Profile</Text>
+        <TouchableOpacity style={styles.editButton} onPress={navigation.goBack}>
+          <Text style={styles.editButtonText}>Cancel</Text>
+          </TouchableOpacity>
       </View>
       <View style={styles.form}>
         <TextInput
@@ -131,7 +136,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
         fontWeight: "bold",
         color: "#fff",
-    },
+  },
+  editButton: {
+    backgroundColor: "#fff",
+    padding: 10,
+    borderRadius: 5,
+  },
+  editButtonText: {
+    color: "#3ED400",
+  },
+    
     form: {
         padding: 20,
     },

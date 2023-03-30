@@ -55,7 +55,6 @@ const Weather = () => {
         `https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=${API_KEY}`
       );
       setWeather(response.data);
-      console.log(response.data);
     } catch (error) {
       Alert.alert("Hello", " this city does not exist");
     }
