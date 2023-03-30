@@ -1,12 +1,21 @@
 import React from 'react'
-import { View, Text, StyleSheet } from "react-native";
+import
+  {
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    TouchableOpacity,
+
+  } from "react-native";
 
 import Weather from './Weather'
 
 const Home = () => {
   return (
     <View style={styles.container}>
-      <Weather />
+        <Weather />
+    
     </View>
     
   )

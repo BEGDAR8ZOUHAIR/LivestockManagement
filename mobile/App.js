@@ -54,7 +54,7 @@ export default function App()
             name="EditProfile"
             component={EditProfile}
             options={{
-              headerShown: false
+              // headerShown: false
             }}
           />
         </Stack.Navigator>

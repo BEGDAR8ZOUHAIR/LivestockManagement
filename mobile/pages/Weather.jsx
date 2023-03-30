@@ -128,24 +128,7 @@ const Weather = () => {
                 {weather?.weather[0]?.main}
               </Text>
             </View>
-            <View style={styles.humidity}>
-              <Text style={styles.humidity}>Humidity</Text>
-              <Text style={styles.humidity}>{weather?.main?.humidity}%</Text>
-              <MaterialCommunityIcons
-                name="water-outline"
-                size={24}
-                color="#000"
-              />
-            </View>
-            <View style={styles.wind}>
-              <Text style={styles.wind}>Wind</Text>
-              <Text style={styles.wind}>{weather?.wind?.speed}km</Text>
-              <MaterialCommunityIcons
-                name="wind-turbine"
-                size={24}
-                color="#000"
-              />
-            </View>
+       
             <FlatList
               extraData={weatherData}
               removeClippedSubviews={false}
@@ -221,26 +204,13 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: -1, height: 2 },
     textShadowRadius: 5,
   },
-  humidity: {
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 10,
-   
-  },
-  wind: {
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-around",
-
-    
-  },
+ 
   hourContainer: {
     justifyContent: "space-between",
     marginHorizontal: 5,
     backgroundColor: "white",
     borderRadius: 10,
-    padding: 10,
+    padding: 2,
     marginTop: 10,
     shadowColor: "#000",
     shadowOffset: {

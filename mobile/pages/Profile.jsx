@@ -28,7 +28,7 @@ const ProfileScreen = () =>
       try
       {
         const response = await fetch(
-          `http://192.168.9.30:5000/client/getClientById/${userId}`
+          `http://192.168.1.117:5000/client/getClientById/${userId}`
         );
         const data = await response.json();
         setUser(data);
@@ -60,7 +60,7 @@ const ProfileScreen = () =>
 
   const handleEditProfile = () =>
   {
-    navigation.navigate("EditProfile", { user, setUser, setRefresh });
+    navigation.navigate("EditProfile");
   };
 
   if (isLoading)
@@ -143,7 +143,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 20,
-    marginTop: 20,
+    // marginTop: 20,
   },
   bioText: {
     fontSize: 16,
