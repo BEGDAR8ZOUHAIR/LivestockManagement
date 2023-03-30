@@ -11,7 +11,7 @@ const {
 
 // get function from client controller
 const {
-  singleClient,
+  getClientById,
   getClients,
   totalClients,
 } = require("../controller/clientController");
@@ -35,9 +35,10 @@ router.route("/getAdmin").get(protect, getAdmin);
 
 
 // Create route for client
-router.route("/singleClient/:id").get(singleClient);
+
 router.route("/totalClients").get(protect, totalClients);
 router.route("/getClients").get(protect, getClients);
+router.route("/getClientById/:id").get(protect, getClientById);
 
 // Create route for farm
 router.route("/totalFarms").get(protect, totalFarms);

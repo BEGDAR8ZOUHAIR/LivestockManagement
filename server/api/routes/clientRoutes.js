@@ -37,25 +37,25 @@ const { protect } = require("../middleware/authMiddleware");
 // Client routes
 router.route("/login").post(authClient);
 router.route("/register").post(registerClient);
-router.route("/update/:id").put(protect, updateClient);
-router.route("/getClient/:id").get(protect, getClient);
+router.route("/update/:id").put( updateClient);
+router.route("/getClient/:id").get( getClient);
 router.route("/getClients").get(getClients);
 router.route("/getClientById/:id").get(getClientById);
 
 // Create route for farm
-router.route("/totalFarms").get(protect, totalFarms);
-router.route("/getFarms").get(protect, getFarms);
-router.route("/getFarmById/:id").get(protect, getFarmById);
-router.route("/createFarm").post(protect, createFarm);
-router.route("/updateFarm/:id").put(protect, updateFarm);
-router.route("/deleteFarm/:id").delete(protect, deleteFarm);
+router.route("/totalFarms").get( totalFarms);
+router.route("/getFarms").get( getFarms);
+router.route("/getFarmById/:id").get( getFarmById);
+router.route("/createFarm").post( createFarm);
+router.route("/updateFarm/:id").put( updateFarm);
+router.route("/deleteFarm/:id").delete( deleteFarm);
 
 // Create route for cattle
-router.route("/getCattle").get(protect, getCattle);
-router.route("/getCattleById/:id").get(protect, getCattleById);
-router.route("/createCattle").post(protect, createCattle);
-router.route("/updateCattle/:id").put(protect, updateCattle);
-router.route("/deleteCattle/:id").delete(protect, deleteCattle);
+router.route("/getCattle").get( getCattle);
+router.route("/getCattleById/:id").get( getCattleById);
+router.route("/createCattle").post( createCattle);
+router.route("/updateCattle/:id").put( updateCattle);
+router.route("/deleteCattle/:id").delete( deleteCattle);
 
 
 

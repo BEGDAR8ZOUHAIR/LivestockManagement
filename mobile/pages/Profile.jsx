@@ -5,157 +5,207 @@ import {
   Text,
   StyleSheet,
   ImageBackground,
-  ScrollView,
   TouchableOpacity,
+  ActivityIndicator,
+  ScrollView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { DrawerActions } from "@react-navigation/native";
-import { Card, Icon } from "react-native-elements";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
-  const [scooters, setScooters] = useState([]);
+  const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+ 
 
-  const loadScooters = async () => {
-    try {
-      const response = await fetch(
-        "http://192.168.9.30:5000/client/getClients" // for my phone wifi
-      );
-      const text = await response.text();
-      const data = JSON.parse(text);
-      setScooters(data);
-      setIsLoading(false);
-    } catch (error) {
-      console.error(error);
+   useEffect(() => {
+        async function fetchUserData() {
+            const userId = await AsyncStorage.getItem('userId');
+            console.log(userId);
+
+            try {
+                const response = await fetch(`http://192.168.9.30:5000/client/getClientById/${userId}`);
+                const data = await response.json();
+                setUser(data);
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+        fetchUserData();
+    }, []);
+
+    const handleLogout = async () => {
+        // Clear the user ID from async storage
+        await AsyncStorage.removeItem('userId');
+        // Navigate to the login screen
+        navigation.navigate('Login');
+  }
+   if (isLoading) {
+        return (
+            <View style={styles.loadingContainer}>
+                <ActivityIndicator size="large" color="#0000ff" />
+                <Text>Loading...</Text>
+            </View>
+        );
     }
-  };
-
-  useEffect(() => {
-    loadScooters();
-  }, []);
-
-  const openDrawer = () => {
-    navigation.dispatch(DrawerActions.openDrawer());
-  };
-
-  const renderScooter = ({ item }) => {
-    return <ScooterCard key={item.id} scooter={item} />;
-  };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Profile</Text>
-        <Icon name="menu" color="#fff" onPress={openDrawer} />
-      </View>
+      <View style={styles.container}>
       <ImageBackground
         source={require("../assets/dashboard.png")}
         style={styles.bgImage}
       >
-        {isLoading ? (
-          <Text style={styles.loadingText}>Loading...</Text>
-        ) : (
-          <ScrollView
-            style={styles.scrollView}
-            ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
-            ListEmptyComponent={() => (
-              <View style={{ alignItems: "center", justifyContent: "center" }}>
-                <Text>No items to display</Text>
+        <View style={styles.header}>
+          <Text style={styles.title}>Profile</Text>
+          <TouchableOpacity style={styles.editButton}>
+            <Text style={styles.editButtonText}>Edit</Text>
+            {/* onPress={() => navigation.navigate('EditProfile')} */}
+          </TouchableOpacity>
+        </View>
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          {user ? (
+            <>
+              <View style={styles.information}>
+                <Text style={styles.fullName}>{user.fullName}</Text>
+                <Text style={styles.email}>{user.email}</Text>
+                <Text style={styles.phoneNumber}>{user.phoneNumber}</Text>
+                <Text style={styles.cin}>{user.cin}</Text>
+                <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+                  <Text style={styles.logoutButtonText}>Logout</Text>
+                </TouchableOpacity>
               </View>
-            )}
-            keyExtractor={(item) => item.id.toString()}
-          >
-            {scooters.map((scooter, index) => (
-              <ScooterCard key={`${index}-${scooter.id}`} scooter={scooter} />
-            ))}
-          </ScrollView>
-        )}
+            </>
+          ) : (
+            <>
+              <Text style={styles.text}>Your profile is empty.</Text>
+              <TouchableOpacity
+                style={styles.registerButton}
+                onPress={() => navigation.navigate('Register')}>
+                <Text style={styles.registerButtonText}>Register now</Text>
+              </TouchableOpacity>
+            </>
+          )}
+        </ScrollView>
       </ImageBackground>
     </View>
   );
 };
 
-const ScooterCard = ({ scooter }) => {
-  return (
-    
-    <Card style={styles.card}>
-      <Card.Title>{scooter.fullName}</Card.Title>
-      <Card.Divider />
-      <Text style={styles.cardText}>CIN: {scooter.cin}</Text>
-      <Text style={styles.cardText}>Phone Number: {scooter.phoneNumber}</Text>
-      <Text style={styles.cardText}>Email: {scooter.email}</Text>
-    
-    </Card>
-  );
-};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
   },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: "#3ED400",
-    padding: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#fff",
-  },
   bgImage: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
   },
-  card: {
-    borderRadius: 10,
-    padding: 10,
-  },
-  scrollView: {
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginHorizontal: 20,
+    marginTop: 20,
   },
-  cardText: {
-    marginBottom: 10,
-  },
-  cardBattery: {
-    marginBottom: 10,
-    color: "#3ED400",
-  },
-  success: {
-    marginBottom: 10,
-    color: "#3ED400",
-  },
-  failed: {
-    marginBottom: 10,
-    color: "#FF0000",
-  },
-  reserveButton: {
-    backgroundColor: "#000",
-    borderRadius: 10,
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#fff",
+    bordeShadowColor: "#000",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 10,
 
+
+  },
+  editButton: {
+    backgroundColor: "#fff",
     padding: 10,
-
-    marginTop: 10,
+    borderRadius: 10,
   },
-  buttonText: {
-    color: "#fff",
+  editButtonText: {
+    color: "#000",
     fontWeight: "bold",
-    textAlign: "center",
-
-    fontSize: 16,
   },
-  loadingText: {
-    color: "#fff",
-    fontWeight: "bold",
-    textAlign: "center",
+  scrollViewContent: {
+    alignItems: "center",
+    justifyContent: "center",
 
+  },
+  information: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 120,
+  },
+  fullName: {
     fontSize: 20,
+    fontWeight: "bold",
+    color: "#fff",
+     bordeShadowColor: "#000",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 10,
   },
+  email: {
+    fontSize: 15,
+    color: "#fff",
+     bordeShadowColor: "#000",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 10,
+  },
+  phoneNumber: {
+    fontSize: 15,
+    color: "#fff",
+     bordeShadowColor: "#000",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 10,
+  },
+  cin: {
+    fontSize: 15,
+    color: "#fff",
+     bordeShadowColor: "#000",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 10,
+  },
+  logoutButton: {
+    backgroundColor: "#fff",
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 20,
+  },
+  logoutButtonText: {
+    color: "#000",
+    fontWeight: "bold",
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#000",
+    marginTop: 20,
+  },
+  registerButton: {
+    backgroundColor: "#fff",
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 20,
+  },
+  registerButtonText: {
+    color: "#000",
+    fontWeight: "bold",
+  },
+  loadingContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+
+
+
+
+  
 });
 
 export default ProfileScreen;
