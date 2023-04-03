@@ -62,7 +62,9 @@ export default function App()
             name="AddAnimal"
             component={AddAnimal}
             options={{
-              headerShown: false
+              // headerShown: false
+              addAnimal: true
+              
             }}
           />
         </Stack.Navigator>
