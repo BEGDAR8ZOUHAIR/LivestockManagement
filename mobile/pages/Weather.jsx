@@ -18,7 +18,6 @@ import {
 
 import * as Location from "expo-location";
 import axios from "axios";
-import SunIcon from "../assets/dashboard.png";
 
 import { API_KEY } from "../utils/weatherApiKey";
 
@@ -99,8 +98,7 @@ const Weather = () => {
   // ===================================================================================
 
   return (
-    <ImageBackground source={SunIcon} style={styles.image}>
-      <SafeAreaView>
+    <SafeAreaView style={styles.container}>
         <View style={styles.container}>
           <TextInput
             style={styles.textInput}
@@ -154,20 +152,16 @@ const Weather = () => {
               }}
             />
           </>
-        ) : null}
-      </SafeAreaView>
-    </ImageBackground>
+      ) : null}
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  image: {
-    flex: 1,
-  },
+ 
   container: {
     position: "relative",
     alignItems: "center",
-    marginTop: 10,
   },
   icon: {
     position: "absolute",
@@ -185,24 +179,17 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   weatherContainer: {
-    color: "#fff",
     flexDirection: "row",
     justifyContent: "center",
   },
   temp: {
     fontSize: 20,
-    color: "#fff",
-    textShadowColor: "rgba(0, 0, 0, 0.50)",
-    textShadowOffset: { width: -1, height: 2 },
-    textShadowRadius: 5,
+   
   },
   typeWeather: {
     fontSize: 20,
     marginHorizontal: 5,
-    color: "#fff",
-    textShadowColor: "rgba(0, 0, 0, 0.50)",
-    textShadowOffset: { width: -1, height: 2 },
-    textShadowRadius: 5,
+  
   },
  
   hourContainer: {
@@ -212,14 +199,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 2,
     marginTop: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
+    Opacity: 0.25,
     shadowRadius: 4.84,
     elevation: 5,
+    marginBottom: 10,
   },
   hour: {
     marginHorizontal: 5,

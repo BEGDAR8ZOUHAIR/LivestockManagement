@@ -1,16 +1,22 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import Weather from './Weather'
 
 const Home = () =>
 {
 
   return (
+    
+    
     <View style={styles.container}>
+      < Weather />
+     
       <TouchableOpacity style={styles.menuBox}>
         <Image
           style={styles.icon}
           source={require("../assets/ajal.png")}
         />
+
         <Text style={styles.info}>Cattle</Text>
       </TouchableOpacity>
 
@@ -43,7 +49,7 @@ const Home = () =>
           style={styles.icon}
           source={require("../assets/sad.png")}
         />
-        <Text style={styles.info}>Product</Text>
+        <Text style={styles.info}>Farm SetUp</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.menuBox}>
@@ -55,6 +61,8 @@ const Home = () =>
       </TouchableOpacity>
 
     </View>
+  
+
   )
 }
 
@@ -63,14 +71,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     textAlign: 'center',
-    paddingTop: 190,
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   menuBox: {
     backgroundColor: '#fff',
-    width: 120,
-    height: 120,
+    width: 130,
+    height: 130,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
