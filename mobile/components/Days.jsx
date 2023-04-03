@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Ionicons } from '@expo/vector-icons';
 
-import { SafeAreaView, StyleSheet, View, Text, FlatList} from 'react-native';
+import
+    {
+        SafeAreaView, StyleSheet, View, Text, FlatList, Image,
+        TouchableOpacity,
+    } from 'react-native';
 
 const Days = () =>
 {
@@ -30,7 +35,10 @@ const Days = () =>
 
     return (
         <SafeAreaView>
-            <View>
+            <View style={styles.container}>
+                <TouchableOpacity style={styles.icons}>
+                    <Ionicons name="today" size={30} color="#3ED400" />
+                </TouchableOpacity>
                 <FlatList
                     data={daysOfWeek}
                     renderItem={({ item }) => (
@@ -43,6 +51,7 @@ const Days = () =>
                     keyExtractor={(item, index) => index.toString()}
                     horizontal
                     showsHorizontalScrollIndicator={false}
+
                 />
             </View>
         </SafeAreaView>
@@ -51,7 +60,12 @@ const Days = () =>
 
 
 const styles = StyleSheet.create({
- 
+    container: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 6,
+    },
   dayOfWeekItem: {
     backgroundColor: '#fff',
     width: 70,
@@ -69,8 +83,12 @@ const styles = StyleSheet.create({
         color: '#000',
         fontWeight: 'bold',
     },
-  
-  
+    icons: {
+        marginLeft: 10,
+    },
+
+
+
 });
 
 export default Days;

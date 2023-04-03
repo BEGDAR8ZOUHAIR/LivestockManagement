@@ -90,13 +90,19 @@ const Weather = () =>
             {Object.keys(weather).length > 0 ? (
                 <>
                     <View style={styles.weatherContainer}>
+                       
                         <Text style={styles.temp}>
                             {Math.round(weather?.main?.temp - 273.15)}°C
                         </Text>
+                        
 
                         <Text style={styles.typeWeather}>
                             {weather?.weather[0]?.main}
                         </Text>
+                        <Image
+                            style={styles.icons}
+                            source={require("../assets/falah.png")}
+                        />
                     </View>
                 </>
             ) : null}
@@ -128,6 +134,8 @@ const styles = StyleSheet.create({
     weatherContainer: {
         flexDirection: "row",
         justifyContent: "center",
+        alignItems: "center",
+        margin: 6,
     },
     temp: {
         fontSize: 20,
@@ -135,8 +143,17 @@ const styles = StyleSheet.create({
     typeWeather: {
         fontSize: 20,
         marginHorizontal: 5,
+        fontWeight: "bold",
 
     },
+    icons: {
+        width: 30,
+        height: 30,
+        marginLeft: 160,
+
+        
+    },
+
 
 });
 
