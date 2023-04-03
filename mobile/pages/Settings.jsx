@@ -1,109 +1,66 @@
-import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import React, { useState, useEffect } from 'react';
 
-const ProfileScreen = () =>
+import { SafeAreaView, StyleSheet, View, Text, FlatList} from 'react-native';
+
+const App = () =>
 {
 
+  const [currentDate, setCurrentDate] = useState('');
+  const [daysOfWeek, setDaysOfWeek] = useState(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']);
+  const [currentDay, setCurrentDay] = useState('');
+
+  useEffect(() =>
+  {
+    const date = new Date();
+    const dayIndex = date.getDay();
+    const dayName = daysOfWeek[dayIndex];
+    setCurrentDate(date.toLocaleString());
+    setCurrentDay(dayName);
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.menuBox}>
-        <Image
-          style={styles.icon}
-          source={{ uri: 'https://img.icons8.com/color/70/000000/cottage.png' }}
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+       
+        <FlatList
+          data={daysOfWeek}
+          renderItem={({ item }) => (
+            <View style={[styles.dayOfWeekItem, currentDay === item && styles.currentDayOfWeekItem]}>
+              <Text style={styles.textStyle}>
+                {item}
+              </Text>
+            </View>
+          )}
+          keyExtractor={(item, index) => index.toString()}
+          horizontal
+          showsHorizontalScrollIndicator={false}
         />
-        <Text style={styles.info}>Intro</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.menuBox}>
-        <Image
-          style={styles.icon}
-          source={{ uri: 'https://img.icons8.com/color/70/000000/administrator-male.png' }}
-        />
-        <Text style={styles.info}>Sign In</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.menuBox}>
-        <Image
-          style={styles.icon}
-          source={{ uri: 'https://img.icons8.com/color/70/000000/pie-chart.png' }}
-        />
-        <Text style={styles.info}>Charts</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.menuBox}>
-        <Image
-          style={styles.icon}
-          source={{ uri: 'https://img.icons8.com/color/70/000000/shop.png' }}
-        />
-        <Text style={styles.info}>Shop</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.menuBox}>
-        <Image
-          style={styles.icon}
-          source={{ uri: 'https://img.icons8.com/color/70/000000/product.png' }}
-        />
-        <Text style={styles.info}>Product</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.menuBox}>
-        <Image
-          style={styles.icon}
-          source={{ uri: 'https://img.icons8.com/color/70/000000/traffic-jam.png' }}
-        />
-        <Text style={styles.info}>Order</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.menuBox}>
-        <Image
-          style={styles.icon}
-          source={{ uri: 'https://img.icons8.com/dusk/70/000000/visual-game-boy.png' }}
-        />
-        <Text style={styles.info}>Info</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.menuBox}>
-        <Image
-          style={styles.icon}
-          source={{ uri: 'https://img.icons8.com/color/70/000000/user.png' }}
-        />
-        <Text style={styles.info}>Profile</Text>
-      </TouchableOpacity>
-
-    </View>
-  )
-}
+      </View>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    textAlign: 'center',
-    paddingTop: 70,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    alignItems: 'center',
   },
-  menuBox: {
+ 
+  dayOfWeekItem: {
     backgroundColor: '#fff',
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 60,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
-    margin: 15,
+    margin: 5,
+    marginTop: 20,
   },
-  icon: {
-    width: 60,
-    height: 60,
+  currentDayOfWeekItem: {
+    backgroundColor: '#3ED400',
   },
-  info: {
-    fontSize: 15,
-    color: '#000',
-  },
+  
+});
 
-})
-
-export default ProfileScreen;
-
-
-
+export default App;
