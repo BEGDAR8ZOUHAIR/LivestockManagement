@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import Weather from '../components/Weather'
+import Dyas from '../components/Days'
 
 const Home = () =>
 {
@@ -10,7 +11,7 @@ const Home = () =>
     
     <View style={styles.container}>
       < Weather />
-     
+      <Dyas />
       <TouchableOpacity style={styles.menuBox}>
         <Image
           style={styles.icon}
@@ -59,8 +60,9 @@ const Home = () =>
         />
         <Text style={styles.info}>Workers</Text>
       </TouchableOpacity>
-
     </View>
+    
+    
   
 
   )
