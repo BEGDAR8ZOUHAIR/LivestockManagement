@@ -79,12 +79,12 @@ const ProfileScreen = () =>
 
         <Image
           style={styles.coverPhoto}
-          source={require("../assets/cover.jpg")}
+          source={require("../../assets/cover.jpg")}
         />
         <View style={styles.profileContainer}>
           <Image
             style={styles.profilePhoto}
-            source={require("../assets/profile.png")}
+            source={require("../../assets/profile.png")}
           />
           <Text style={styles.nameText}>{user.fullName}</Text>
         </View>

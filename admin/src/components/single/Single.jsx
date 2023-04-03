@@ -2,10 +2,11 @@ import "./single.scss";
 import Sidebar from "../sidebar/Sidebar";
 import Navbar from "../navbar/Navbar";
 import { Link } from "react-router-dom";
-import New from "../../pages/new/New";
+import New from "../../screens/new/New";
 import { userInputs } from "../../formSource";
 
-const Single = ({ data }) => {
+const Single = ({ data }) =>
+{
   const path = window.location.pathname.split("/")[1];
   return (
     <div className="single">

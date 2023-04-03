@@ -4,13 +4,16 @@ import { carColumns, userColumns, compteColumns } from "../../datatablesource";
 import { carAction, compteAction, userAction } from "../../actionTable";
 import { Link } from "react-router-dom";
 
-const Datatable = ({ data, title }) => {
+const Datatable = ({ data, title }) =>
+{
   const path = window.location.pathname.split("/")[1];
-  
+
 
   // add switch statement to handle different paths
-  const switchFunction = () => {
-    switch (path) {
+  const switchFunction = () =>
+  {
+    switch (path)
+    {
       case "users":
         return userColumns.concat(userAction);
       case "cars":
@@ -36,7 +39,7 @@ const Datatable = ({ data, title }) => {
         getRowId={(row) => row._id}
         rows={data}
         columns={switchFunction()}
-        pageSize={9}
+        screensize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
       />

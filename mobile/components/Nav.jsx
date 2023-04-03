@@ -3,13 +3,14 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, View, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import Home from "../pages/Home";
-import Profile from "../pages/Profile";
-import Settings from "../pages/Settings";
+import Home from "../screens/Home";
+import Profile from "../screens/profile/Profile";
+import Settings from "../screens/Settings";
 
 const Tab = createBottomTabNavigator();
 
-const Tabs = () => {
+const Tabs = () =>
+{
   return (
     <Tab.Navigator
       screenOptions={{
@@ -53,7 +54,7 @@ const Tabs = () => {
           ),
         }}
       />
-      
+
       <Tab.Screen
         name="Settings"
         component={Settings}
@@ -96,7 +97,7 @@ const Tabs = () => {
             >
               <Ionicons
                 name="person"
-                size={focused ? 30 : 25}  
+                size={focused ? 30 : 25}
                 color={focused ? "#3ED400" : "#748c94"}
               />
               <Text

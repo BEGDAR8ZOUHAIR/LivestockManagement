@@ -2,9 +2,11 @@ import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import Weather from '../components/Weather'
 import Dyas from '../components/Days'
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () =>
 {
+  const navigation = useNavigation();
 
   return (
     
@@ -12,11 +14,14 @@ const Home = () =>
     <View style={styles.container}>
       < Weather />
       <Dyas />
-      <TouchableOpacity style={styles.menuBox}>
+      <TouchableOpacity style={styles.menuBox}
+        onPress={() => navigation.navigate("AddAnimal")}
+      >
         <Image
           style={styles.icon}
           source={require("../assets/ajal.png")}
         />
+
 
         <Text style={styles.info}>Cattle</Text>
       </TouchableOpacity>

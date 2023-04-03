@@ -4,10 +4,11 @@ import { StyleSheet, Text, View, LogBox } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaView } from 'react-native';
-import Onboarding from './pages/Onboarding';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import EditProfile from './pages/EditProfile';
+import Onboarding from './screens/Onboarding';
+import Login from './screens/Login';
+import Register from './screens/Register';
+import EditProfile from './screens/profile/EditProfile';
+import AddAnimal from './screens/animals/AddAnimal';
 import Nav from './components/Nav';
 
 const Stack = createStackNavigator();
@@ -55,6 +56,13 @@ export default function App()
             component={EditProfile}
             options={{
               // headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="AddAnimal"
+            component={AddAnimal}
+            options={{
+              headerShown: false
             }}
           />
         </Stack.Navigator>
