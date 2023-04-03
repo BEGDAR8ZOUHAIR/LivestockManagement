@@ -28,7 +28,7 @@ const ProfileScreen = () =>
       try
       {
         const response = await fetch(
-          `http://192.168.1.117:5000/client/getClientById/${userId}`
+          `http://172.16.100.121:5000/client/getClientById/${userId}`
         );
         const data = await response.json();
         setUser(data);
@@ -72,8 +72,6 @@ const ProfileScreen = () =>
       </View>
     );
   }
-
-
 
   return (
     <ScrollView style={styles.container}>

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import
-  {
-    View,
-    Text,
-    StyleSheet,
-    TextInput,
-    TouchableOpacity,
-    ActivityIndicator,
-    Image,
-    ScrollView,
+{
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  ActivityIndicator,
+  Image,
+  ScrollView,
 
-  } from "react-native";
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -36,7 +36,7 @@ const EditProfile = () =>
 
       try
       {
-        const response = await fetch(`http://192.168.1.117:5000/client/getClientById/${userId}`);
+        const response = await fetch(`http://172.16.100.121:5000/client/getClientById/${userId}`);
         const data = await response.json();
         setUser(data);
         setFullName(data.fullName);
@@ -65,7 +65,7 @@ const EditProfile = () =>
     };
     try
     {
-      await fetch(`http://192.168.1.117:5000/client/updateClient/${userId}`, {
+      await fetch(`http://172.16.100.121:5000/client/updateClient/${userId}`, {
         method: 'PUT',
         headers: {
           Accept: 'application/json',
@@ -102,40 +102,40 @@ const EditProfile = () =>
         <View style={styles.profileContainer}>
           <Image
             style={styles.profilePhoto}
-            source={require("../assets/profile.png")}  
+            source={require("../assets/profile.png")}
           />
         </View>
       </View>
       <View style={styles.header}>
-      <TextInput
-        style={styles.input}
-        placeholder="Full Name"
-        value={fullName}
-        onChangeText={setFullName}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Phone Number"
-        value={phoneNumber}
-        onChangeText={setPhoneNumber}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="CIN"
-        value={cin}
-        onChangeText={setCin}
+        <TextInput
+          style={styles.input}
+          placeholder="Full Name"
+          value={fullName}
+          onChangeText={setFullName}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Phone Number"
+          value={phoneNumber}
+          onChangeText={setPhoneNumber}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="CIN"
+          value={cin}
+          onChangeText={setCin}
         />
         <TouchableOpacity style={styles.buttonlogout} onPress={handleSave}>
           <Text style={styles.buttonText}>Save</Text>
         </TouchableOpacity>
       </View>
-     
+
     </ScrollView>
   );
 };
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginTop: 20,
   },
- 
+
   input: {
     height: 40,
     borderWidth: 1,

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import
-  {
-    StyleSheet,
-    View,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    Image,
-    Alert,
-    ScrollView,
-  } from "react-native";
+{
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  Alert,
+  ScrollView,
+} from "react-native";
 
 const Register = () =>
 {
@@ -25,7 +25,7 @@ const Register = () =>
   {
     try
     {
-      const res = await fetch("http://192.168.1.117:5000/client/register", {
+      const res = await fetch("http://172.16.100.121:5000/client/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

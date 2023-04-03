@@ -3,17 +3,17 @@ import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import
-  {
-    StyleSheet,
-    View,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    Image,
-    Alert,
-    ScrollView,
-    ActivityIndicator,
-  } from "react-native";
+{
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  Alert,
+  ScrollView,
+  ActivityIndicator,
+} from "react-native";
 
 const LoginScreen = () =>
 {
@@ -31,7 +31,7 @@ const LoginScreen = () =>
     setLoading(true);
     try
     {
-      const res = await fetch("http://192.168.1.117:5000/client/login", {
+      const res = await fetch("http://172.16.100.121:5000/client/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
