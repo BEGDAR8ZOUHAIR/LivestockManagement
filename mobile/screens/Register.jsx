@@ -46,7 +46,7 @@ const Register = () =>
 
       } else
       {
-        navigation.navigate("Nav");
+        navigation.navigate("Login");
       }
     } catch (err)
     {

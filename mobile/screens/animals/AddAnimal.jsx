@@ -10,7 +10,9 @@ import
     Image,
     Alert,
     ScrollView,
+    ActivityIndicator,
 } from "react-native";
+// import { Picker } from "@react-native-picker/picker";
 
 const AddAnimal = () =>
 {
@@ -30,11 +32,26 @@ const AddAnimal = () =>
     const [note, setNote] = useState("");
     const [image, setImage] = useState("");
 
+    const typesOfCattle = [
+        { label: "Cow", value: "Cow" },
+        { label: "Bull", value: "Bull" },
+        { label: "Heifer", value: "Heifer" },
+        { label: "Calf", value: "Calf" },
+        { label: "Steer", value: "Steer" },
+        { label: "Bull Calf", value: "Bull Calf" },
+        { label: "Heifer Calf", value: "Heifer Calf" },
+        { label: "Bull Calves", value: "Bull Calves" },
+        { label: "Heifer Calves", value: "Heifer Calves" },
+        { label: "Steers", value: "Steers" },
+    ];
+        
+
+
     const handleAddAnimal = async () =>
     {
         try
         {
-            const res = await fetch("http://http://172.16.100.121:5000/client/createCattle", {
+            const res = await fetch("http://172.16.100.121:5000/client/createCattle", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -54,12 +71,14 @@ const AddAnimal = () =>
                     father,
                     note,
                     image,
+
                 }),
             });
             const data = await res.json();
             if (data.error)
             {
                 Alert.alert("Error", data.error, [{ text: "OK" }]);
+
             } else
             {
                 navigation.navigate("Home");
@@ -86,12 +105,29 @@ const AddAnimal = () =>
                         value={name}
                         onChangeText={(text) => setName(text)}
                     />
+                    {/* Type of Cattle i want select  */}
+                    {/* <View style={styles.input}>
+                        <Picker
+                            selectedValue={type}
+                            onValueChange={(itemValue, itemIndex) => setType(itemValue)}
+                        >
+                            {typesOfCattle.map((item, index) => (
+                                <Picker.Item
+                                    key={index}
+                                    label={item.label}
+                                    value={item.value}
+                                />
+                            ))}
+                        </Picker>
+                    </View> */}
                     <TextInput
                         style={styles.input}
                         placeholder="Type"
                         value={type}
                         onChangeText={(text) => setType(text)}
                     />
+
+                   
                     <TextInput
                         style={styles.input}
                         placeholder="Age"
@@ -219,6 +255,10 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom: 10,
     },
+    buttonText: {
+        color: "#fff",
+    },
+
 
 });
 

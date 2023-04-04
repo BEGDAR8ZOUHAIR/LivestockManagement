@@ -12,19 +12,19 @@ const catlleSchema = mongoose.Schema(
       required: [true, "Please enter type of cattle "],
     },
     age: {
-      type: Number,
+      type: String,
       required: [true, "Please enter age of cattle"],
     },
     weight: {
-      type: Number,
+      type: String,
       required: [true, "Please enter weight of cattle"],
     },
     birthDate: {
-      type: Date,
+      type: String,
       required: [true, "Please enter birth date of cattle"],
     },
     dateOfEntry: {
-      type: Date,
+      type: String,
       required: [true, "Please enter date of entry of cattle"],
     },
     obtainedFrom: {

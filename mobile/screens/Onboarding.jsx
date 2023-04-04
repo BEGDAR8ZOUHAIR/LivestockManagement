@@ -77,9 +77,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  image: {
-    sizeMode: "contain",
-  },
   title: {
     fontSize: 22,
     fontWeight: "bold",
