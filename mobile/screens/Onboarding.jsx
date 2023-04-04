@@ -60,9 +60,6 @@ export default function Onboarding({ navigation })
       </TouchableOpacity>
 
 
-
-
-    
      </View>
   );
 }
@@ -90,9 +87,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
   },
-
-
-
 });
 
 

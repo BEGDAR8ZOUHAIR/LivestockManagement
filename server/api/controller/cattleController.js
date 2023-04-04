@@ -38,6 +38,7 @@ const createCattle = asyncHandler(async (req, res) =>
         type,
         age,
         weight,
+        gender,
         birthDate,
         dateOfEntry,
         obtainedFrom,
@@ -52,6 +53,7 @@ const createCattle = asyncHandler(async (req, res) =>
     const cattle = new Cattle({
         name,
         type,
+        gender,
         age,
         weight,
         birthDate,
@@ -79,6 +81,7 @@ const updateCattle = asyncHandler(async (req, res) => {
         name,
         type,
         age,
+        gender,
         weight,
         birthDate,
         dateOfEntry,
@@ -97,6 +100,7 @@ const updateCattle = asyncHandler(async (req, res) => {
         cattle.name = name;
         cattle.type = type;
         cattle.age = age;
+        cattle.gender = gender;
         cattle.weight = weight;
         cattle.birthDate = birthDate;
         cattle.dateOfEntry = dateOfEntry;

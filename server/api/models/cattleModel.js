@@ -15,6 +15,10 @@ const catlleSchema = mongoose.Schema(
       type: String,
       required: [true, "Please enter age of cattle"],
     },
+    gender: {
+      type: String,
+      required: [true, "Please enter gender of cattle"],
+    },
     weight: {
       type: String,
       required: [true, "Please enter weight of cattle"],

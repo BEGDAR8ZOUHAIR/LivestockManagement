@@ -15,7 +15,7 @@ const Home = () =>
       < Weather />
       <Dyas />
       <TouchableOpacity style={styles.menuBox}
-        onPress={() => navigation.navigate("AddAnimal")}
+        onPress={() => navigation.navigate("Animals")}
       >
         <Image
           style={styles.icon}

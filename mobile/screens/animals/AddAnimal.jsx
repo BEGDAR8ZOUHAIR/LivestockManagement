@@ -12,7 +12,7 @@ import
     ScrollView,
     ActivityIndicator,
 } from "react-native";
-// import { Picker } from "@react-native-picker/picker";
+// import { Picker } from '@react-native-community/picker';
 
 const AddAnimal = () =>
 {
@@ -61,6 +61,7 @@ const AddAnimal = () =>
                     name,
                     type,
                     age,
+                    gender,
                     weight,
                     birthDate,
                     dateOfEntry,
@@ -93,11 +94,11 @@ const AddAnimal = () =>
     return (
         <ScrollView>
             <View style={styles.container}>
-                <View style={styles.header}>
+                {/* <View style={styles.header}>
                     <Text style={{ fontSize: 20, fontWeight: "bold" }}>
                         Add Animal
                     </Text>
-                </View>
+                </View> */}
                 <View style={styles.form}>
                     <TextInput
                         style={styles.input}
@@ -105,28 +106,23 @@ const AddAnimal = () =>
                         value={name}
                         onChangeText={(text) => setName(text)}
                     />
-                    {/* Type of Cattle i want select  */}
-                    {/* <View style={styles.input}>
-                        <Picker
-                            selectedValue={type}
-                            onValueChange={(itemValue, itemIndex) => setType(itemValue)}
-                        >
-                            {typesOfCattle.map((item, index) => (
-                                <Picker.Item
-                                    key={index}
-                                    label={item.label}
-                                    value={item.value}
-                                />
-                            ))}
-                        </Picker>
-                    </View> */}
+                  
+                    {/* <Picker
+                        selectedValue={type}
+                        style={{ height: 50, width: 150 }}
+                        onValueChange={(itemValue, itemIndex) => setType(itemValue)}
+                    >
+                        {typesOfCattle.map((item, index) => (   
+                            <Picker.Item label={item.label} value={item.value} key={index} />
+                        ))}
+                    </Picker> */}
+
                     <TextInput
                         style={styles.input}
-                        placeholder="Type"
-                        value={type}
-                        onChangeText={(text) => setType(text)}
+                        placeholder="Gender"
+                        value="gender"
+                        onChangeText={(text) => setGender(text)}
                     />
-
                    
                     <TextInput
                         style={styles.input}

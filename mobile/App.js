@@ -9,6 +9,7 @@ import Login from './screens/Login';
 import Register from './screens/Register';
 import EditProfile from './screens/profile/EditProfile';
 import AddAnimal from './screens/animals/AddAnimal';
+import Animals from './screens/animals/Animals';
 import Nav from './components/Nav';
 
 const Stack = createStackNavigator();
@@ -67,6 +68,15 @@ export default function App()
               
             }}
           />
+          <Stack.Screen
+            name="Animals"
+            component={Animals}
+            options={{
+              // headerShown: false
+            }}
+          />
+          
+
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
