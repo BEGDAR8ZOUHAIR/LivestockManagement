@@ -11,6 +11,11 @@ import
     ActivityIndicator,
     FlatList,
 } from "react-native";
+import
+    {
+        AntDesign
+
+    } from "@expo/vector-icons";
 
 const Animals = () =>
 {
@@ -60,21 +65,20 @@ const Animals = () =>
     }
 
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
           
             <View style={styles.body}>
                 <FlatList
-                
+                    showsVerticalScrollIndicator={false}
                     data={cattle}
-                    keyExtractor={(item) => item._id}
-                    renderItem={({ item }) => (
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={({item, index }) => (
                         <TouchableOpacity
                             style={styles.animal}
                             onPress={() =>
                                 navigation.navigate("Animal", {
                                     animalId: item._id,
                                 })
-                              
                             }
                         >   
                             <Image
@@ -89,17 +93,21 @@ const Animals = () =>
                         </TouchableOpacity>
                     )}
                 />
-                {/* add Animal */}
                 <TouchableOpacity
                     style={styles.addAnimal}
                     onPress={() => navigation.navigate("AddAnimal")}
                 >
+                    <AntDesign
+                        style={styles.addAnimalIcon}
+                        name="pluscircle" size={25} color="#fff"
+                    />
                     <Text style={styles.addAnimalText}>Add Animal</Text>
+                  
                 </TouchableOpacity>
 
 
             </View>
-        </ScrollView>
+        </View>
     );
 };
 
@@ -170,8 +178,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         // justifyContent: "center",
         margin: 10,
-        padding: 30,
-        backgroundColor: "#fff",
+        padding: 20,
+        backgroundColor: "#3ED400",
         borderRadius: 10,
         shadowColor: "#000",
         shadowOffset: {
@@ -185,27 +193,20 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 10,
         right: 10,
-
     },
     addAnimalText: {
         marginLeft: 10,
         fontWeight: "bold",
-        color: "green",
+        color: "#fff",
 
     },
+    addAnimalIcon: {
+        marginLeft: 5,
+        fontWeight: "bold",
+        color: "#fff",
 
-
-
-
-
-    
-
-
-
-    
-
-
-   
+    },
+ 
    
 });
 
