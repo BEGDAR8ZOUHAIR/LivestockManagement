@@ -11,6 +11,7 @@ import EditProfile from './screens/profile/EditProfile';
 import AddAnimal from './screens/animals/AddAnimal';
 import Animals from './screens/animals/Animals';
 import DetailAnimal from './screens/animals/DetailAnimal';
+import UpdateAnimal from './screens/animals/UpdateAnimal';
 
 import Nav from './components/Nav';
 
@@ -84,6 +85,14 @@ export default function App()
               // headerShown: false
             }}
           />
+          <Stack.Screen
+            name="UpdateAnimal"
+            component={UpdateAnimal}
+            options={{
+              // headerShown: false
+            }}
+          />
+          
 
           
 

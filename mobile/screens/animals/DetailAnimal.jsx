@@ -57,47 +57,6 @@ const DetailAnimal = ({ navigation }) =>
         );
     }
 
-    const handleUpdate = async (updatedData) =>
-    {
-        try
-        {
-            const response = await fetch(
-                `http://172.16.100.121:5000/client/updateCattle/${id.id}`,
-                {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(updatedData),
-                }
-            );
-            const data = await response.json();
-            setId(data);
-            setIsEditing(false);
-        } catch (error)
-        {
-            console.error(error);
-        }
-    };
-
-    // Function to handle deleting the animal
-    const handleDelete = async () =>
-    {
-        try
-        {
-            const response = await fetch(
-                `http://172.16.100.121:5000/client/deleteCattle/${id.id}`,
-                {
-                    method: "DELETE",
-                }
-            );
-            setIsDeleting(false);
-            navigation.goBack(); // Navigate back to previous screen after deletion
-        } catch (error)
-        {
-            console.error(error);
-        }
-    };
 
  
     return (
@@ -128,14 +87,14 @@ const DetailAnimal = ({ navigation }) =>
                     {/* update  */}
                     <TouchableOpacity
                         style={styles.buttonContainer}
-                        onPress={() => navigation.navigate("UpdateAnimal", { id: id.id })}
+                        onPress={() => navigation.navigate('UpdateAnimal', {id: id.id})}
                     >
                         <Text style={styles.buttonText}>Update</Text>
                     </TouchableOpacity>
                     {/* delete */}
                     <TouchableOpacity
                         style={styles.buttonContainer}
-                        onPress={() => navigation.navigate("DeleteAnimal", { id: id.id })}
+
                     >
                         <Text style={styles.buttonText}>Delete</Text>   
                     </TouchableOpacity>
