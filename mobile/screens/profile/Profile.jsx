@@ -67,7 +67,7 @@ const ProfileScreen = () =>
   {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color="#3ED400" />
         <Text>Loading...</Text>
       </View>
     );
@@ -181,6 +181,11 @@ const styles = {
     padding: 10,
     marginHorizontal: 20,
     marginTop: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 };
 

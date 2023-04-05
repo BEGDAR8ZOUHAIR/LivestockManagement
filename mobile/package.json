@@ -37,6 +37,7 @@
     "react-native-share": "^8.2.1",
     "react-native-swipe": "^1.0.0",
     "react-native-swiper": "^1.6.0",
+    "react-native-table-component": "^1.2.2",
     "react-test-renderer": "^18.1.0"
   },
   "devDependencies": {

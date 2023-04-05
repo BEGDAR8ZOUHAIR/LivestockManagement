@@ -10,6 +10,8 @@ import Register from './screens/Register';
 import EditProfile from './screens/profile/EditProfile';
 import AddAnimal from './screens/animals/AddAnimal';
 import Animals from './screens/animals/Animals';
+import DetailAnimal from './screens/animals/DetailAnimal';
+
 import Nav from './components/Nav';
 
 const Stack = createStackNavigator();
@@ -75,6 +77,14 @@ export default function App()
               // headerShown: false
             }}
           />
+          <Stack.Screen
+            name="DetailAnimal"
+            component={DetailAnimal}
+            options={{
+              // headerShown: false
+            }}
+          />
+
           
 
         </Stack.Navigator>

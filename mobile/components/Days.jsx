@@ -44,8 +44,12 @@ const Days = () =>
                     renderItem={({ item }) => (
                         <View style={[styles.dayOfWeekItem, currentDay === item.name && styles.currentDayOfWeekItem]}>
                             <Text style={styles.textStyle}>
-                                {item.name} {item.number}
+                                {item.number}
                             </Text>
+                            <Text style={styles.textStyle}>
+                                {item.name} 
+                            </Text>
+                           
                         </View>
                     )}
                     keyExtractor={(item, index) => index.toString()}
@@ -62,29 +66,31 @@ const Days = () =>
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'center',
         alignItems: 'center',
-        margin: 6,
+        justifyContent: 'center',
+        padding: 10,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        margin: 10,
     },
-  dayOfWeekItem: {
-    backgroundColor: '#fff',
-    width: 70,
-    height: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 10,
-    margin: 5,
-  },
-  currentDayOfWeekItem: {
-      backgroundColor: '#3ED400',
-      color: '#fff',
+    dayOfWeekItem: {
+        padding: 10,
+        margin: 5,
+        backgroundColor: '#f5f5f5', 
+        borderRadius: 10,
+
+
     },
-    textStyle: {
-        color: '#000',
-        fontWeight: 'bold',
+
+    currentDayOfWeekItem: {
+        backgroundColor: '#3ED400',
     },
     icons: {
-        marginLeft: 10,
+        marginRight: 10,
+    },
+    textStyle: {
+        fontWeight: 'bold',
+        textAlign: 'center',
     },
 
 

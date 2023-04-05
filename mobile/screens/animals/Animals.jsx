@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import
 {
@@ -7,15 +7,16 @@ import
     Text,
     TouchableOpacity,
     Image,
-    ScrollView,
     ActivityIndicator,
     FlatList,
+    Modal,
+    TextInput,
 } from "react-native";
 import
-    {
-        AntDesign
+{
+    AntDesign, Entypo
 
-    } from "@expo/vector-icons";
+} from "@expo/vector-icons";
 
 const Animals = () =>
 {
@@ -28,7 +29,6 @@ const Animals = () =>
     {
         async function fetchCattleData()
         {
-
             try
             {
                 const response = await fetch(`http://172.16.100.121:5000/client/getCattle`);
@@ -64,155 +64,137 @@ const Animals = () =>
         );
     }
 
+
     return (
         <View style={styles.container}>
-          
-            <View style={styles.body}>
-                <FlatList
-                    showsVerticalScrollIndicator={false}
-                    data={cattle}
-                    keyExtractor={(item, index) => index.toString()}
-                    renderItem={({item, index }) => (
-                        <TouchableOpacity
-                            style={styles.animal}
-                            onPress={() =>
-                                navigation.navigate("Animal", {
-                                    animalId: item._id,
-                                })
-                            }
-                        >   
-                            <Image
-                                style={styles.animalImage}
-                                source={{ uri: item.image }}
-                            />
+            <View style={styles.searchContainer}>
+                <TextInput
+                    style={styles.searchInput}
+                    placeholder="Search"
+                    placeholderTextColor="##3ED400"
 
-                            <Text style={styles.animalText}>{item.name}</Text>
-                            <Text style={styles.animalGender}>{item.gender}</Text>
-                            <Text style={styles.animalStatus}>{item.status}</Text>
-                           
-                        </TouchableOpacity>
-                    )}
                 />
-                <TouchableOpacity
-                    style={styles.addAnimal}
-                    onPress={() => navigation.navigate("AddAnimal")}
-                >
-                    <AntDesign
-                        style={styles.addAnimalIcon}
-                        name="pluscircle" size={25} color="#fff"
-                    />
-                    <Text style={styles.addAnimalText}>Add Animal</Text>
-                  
-                </TouchableOpacity>
-
-
             </View>
+            <FlatList
+                showsVerticalScrollIndicator={false}
+                data={cattle}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({ item, index }) => (
+                    <View style={styles.itemContainer}>
+                        <Image style={styles.image} source={{ uri: item.image }} />
+                        <View style={styles.textContainer}>
+                            <Text style={styles.nameText}>{item.name}</Text>
+                            <Text style={styles.phoneText}>{item.type}</Text>
+                        </View>
+                        <View style={styles.textRightContainer}>
+                            <Text style={styles.phoneText}>{item.gender}</Text>
+                        </View>
+                        <TouchableOpacity
+                            style={styles.animalDetailsButton}
+                            onPress={() => navigation.navigate("DetailAnimal", { id: item._id })}
+                        >
+                            <Entypo
+                                style={styles.animalDetailsIcon}
+                                name="info-with-circle" size={24} color="#3ED400" />
+                        </TouchableOpacity>
+                    </View>
+                )}
+            />
+            <TouchableOpacity
+                style={styles.addAnimal}
+                onPress={() => navigation.navigate("AddAnimal")}
+            >
+                <AntDesign
+                    style={styles.addAnimalIcon}
+                    name="pluscircle" size={25} color="#fff"
+                />
+                <Text style={styles.addAnimalText}>Add Animal</Text>
+
+            </TouchableOpacity>
         </View>
-    );
-};
+    )
+}
 
 const styles = StyleSheet.create({
-//   flat list tow columns
     container: {
         flex: 1,
+        backgroundColor: '#fff',
     },
- 
-    body: {
+    searchContainer: {
+        backgroundColor: '#eee',
+        padding: 8,
+    },
+    searchInput: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        padding: 8,
+    },
+    itemContainer: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        // width: "100%",
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: 16,
+        borderBottomWidth: 1,
+        borderBottomColor: '#eee',
     },
-    animal: {
+    textRightContainer: {
         flex: 1,
-        flexDirection: "row",
-        alignItems: "center",
-        // justifyContent: "center",
-        margin: 10,
-        padding: 30,
-        backgroundColor: "#fff",
-        borderRadius: 10,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 2,
-        // width: "80%",
-    },
-    
-    animalImage: {
-        width: 45,
-        height: 45,
-        borderRadius: 50,
-    },
-    animalText: {
-        
-        marginLeft: 10,
-        fontWeight: "bold",
-    },
-    animalGender: {
-        marginLeft: 10,
-        fontWeight: "bold",
+        // flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
 
-       
-    },
-    animalStatus: {
-        marginLeft: 10,
-        fontWeight: "bold",
-        color: "red",
-        
+
     },
 
+    image: {
+        width: 48,
+        height: 48,
+        borderRadius: 24,
+    },
+    textContainer: {
+        marginLeft: 16,
+    },
+    nameText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    phoneText: {
+        fontSize: 16,
+        color: '#999',
+    },
+    animalDetailsButton: {
+        position: 'absolute',
+        right: 16,
+    },
+    animalDetailsIcon: {
+    },
     loading: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-
     addAnimal: {
-        flex: 1,
-        flexDirection: "row",
-        alignItems: "center",
-        // justifyContent: "center",
-        margin: 10,
-        padding: 20,
-        backgroundColor: "#3ED400",
-        borderRadius: 10,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 2,
-        // width: "80%",
-        position: "absolute",
-        bottom: 10,
-        right: 10,
-    },
-    addAnimalText: {
-        marginLeft: 10,
-        fontWeight: "bold",
-        color: "#fff",
-
+        position: 'absolute',
+        bottom: 20,
+        right: 20,
+        backgroundColor: '#3ED400',
+        borderRadius: 50,
+        padding: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     addAnimalIcon: {
-        marginLeft: 5,
-        fontWeight: "bold",
-        color: "#fff",
-
+        marginRight: 5,
     },
- 
-   
-});
+    addAnimalText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+
+
+})
 
 export default Animals;
-
-        
-                          
-        
-  
