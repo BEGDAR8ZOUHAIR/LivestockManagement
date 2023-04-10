@@ -9,7 +9,7 @@ import { config } from "../../getToken";
 const Comptes = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get("admin/getComptes", config).then((res) => {
+    axios.get("admin/getFarms", config).then((res) => {
       console.log(res.data);
       setData(res.data);
     });

@@ -135,8 +135,18 @@ const deleteCattle = asyncHandler(async (req, res) => {
         res.status(404);
         throw new Error("Cattle not found");
     }
-}   
+});
+
+// @desc   Total cattle
+// @route   GET /api/cattle/total
+// @access  Private
+const totalCattle = asyncHandler(async (req, res) =>
+{
+    const total = await Cattle.countDocuments();
+    res.json(total);
+}
 );
+
 
 module.exports = {
     getCattle,
@@ -144,6 +154,7 @@ module.exports = {
     createCattle,
     updateCattle,
     deleteCattle,
+    totalCattle,
 };
 
 

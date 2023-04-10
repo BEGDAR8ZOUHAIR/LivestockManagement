@@ -5,6 +5,9 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import TimeToLeaveIcon from '@mui/icons-material/TimeToLeave';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import AgricultureIcon from '@mui/icons-material/Agriculture';
+
 
 const Widget = ({ type,amount }) => {
   let data;
@@ -16,7 +19,7 @@ const Widget = ({ type,amount }) => {
   switch (type) {
     case "user":
       data = {
-        title: "USERS",
+        title: "CLIENTS",
         isMoney: false,
         link: "See all users",
         icon: (
@@ -25,6 +28,8 @@ const Widget = ({ type,amount }) => {
             style={{
               color: "crimson",
               backgroundColor: "rgba(255, 0, 0, 0.2)",
+              width: "100%",
+              
             }}
           />
         ),
@@ -32,15 +37,16 @@ const Widget = ({ type,amount }) => {
       break;
     case "compte":
       data = {
-        title: "COMPTES",
+        title: "FARMS",
         isMoney: false,
         link: "View all comptes",
         icon: (
-          <ShoppingCartOutlinedIcon
+          <HomeOutlinedIcon
             className="icon"
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",
               color: "goldenrod",
+              width: "100%",
             }}
           />
         ),
@@ -49,15 +55,16 @@ const Widget = ({ type,amount }) => {
 
     case "solde":
       data = {
-        title: "SOLDE",
+      title: "CATTLE",
         isMoney: true,
         link: "See details",
         icon: (
-          <AccountBalanceWalletOutlinedIcon
+          <AgricultureIcon
             className="icon"
             style={{
               backgroundColor: "rgba(128, 0, 128, 0.2)",
               color: "purple",
+              width: "100%",
             }}
           />
         ),
@@ -74,15 +81,11 @@ const Widget = ({ type,amount }) => {
           {data.title}
         </span>
         <span className="counter">
-          {data.isMoney && "$"} {amount}
+          {data.isMoney} {amount}
         </span>
         <span className="link">{data.link}</span>
       </div>
       <div className="right">
-        <div className="percentage positive">
-          <KeyboardArrowUpIcon />
-          {diff} %
-        </div>
         {data.icon}
       </div>
     </div>

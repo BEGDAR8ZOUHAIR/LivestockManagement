@@ -16,10 +16,12 @@ const Featured = ({ solde }) => {
         <div className="featuredChart">
           <CircularProgressbar value={70} text={"70%"} strokeWidth={5} />
         </div>
-        <p className="title">Total sales made today</p>
+        <p className="title">Total Milk Production</p>
         <p className="amount">$420</p>
         <p className="desc">
-          Previous comptes processing. Last payments may not be included.
+          {/* Compared to last month, your revenue has increased <by>" "</by>
+          <span className="percent">20%</span> */}
+          
         </p>
         <div className="summary">
           <div className="item">

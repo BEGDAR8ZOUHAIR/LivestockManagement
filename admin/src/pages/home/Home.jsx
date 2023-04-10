@@ -18,7 +18,7 @@ const Home = () => {
   useEffect(() => {
 
     const totalCompte = async () => {
-      const res = await axios.get("admin/totalComptes", config);
+      const res = await axios.get("admin/totalFarms", config);
       setCompte(res.data);
     };
     const totalClient = async () => {
@@ -26,7 +26,7 @@ const Home = () => {
       setClient(res.data);
     };
      const totalSoldes = async () => {
-       const res = await axios.get("admin/totalSoldes", config);
+       const res = await axios.get("admin/totalCattle", config);
        setSolde(res.data);
      };
     totalCompte();
@@ -47,7 +47,7 @@ const Home = () => {
         </div>
         <div className="charts">
           <Featured />
-          <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
+          {/* <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} /> */}
         </div>
         {/* <div className="listContainer">
           <div className="listTitle">Latest comptes</div>
