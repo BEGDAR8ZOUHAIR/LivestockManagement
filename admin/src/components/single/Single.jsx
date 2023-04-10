@@ -19,10 +19,11 @@ const Single = ({ data }) =>
               <h1 className="title">Information</h1>
               <div className="item">
                 <img
-                  src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                  src="https://tastear.wearefew.opalstacked.com/wp-content/uploads/2019/03/Critt.-County-Farm-Family-2010-Wallace-Family-034-1024x680.jpg"
                   alt=""
                   className="itemImg"
                 />
+               
                 <div className="details">
                   <h1 className="itemTitle">{data?.fullName}</h1>
                   <div className="detailItem">
@@ -33,17 +34,10 @@ const Single = ({ data }) =>
                     <span className="itemKey">Phone:</span>
                     <span className="itemValue">{data?.phoneNumber}</span>
                   </div>
-                  <div className="detailItem">
-                    <span className="itemKey">Birth Date:</span>
-                    <span className="itemValue">{data?.birthDate}</span>
-                  </div>
+                 
                   <div className="detailItem">
                     <span className="itemKey">Cin:</span>
                     <span className="itemValue">{data?.cin}</span>
-                  </div>
-                  <div className="detailItem">
-                    <span className="itemKey">Agence:</span>
-                    <span className="itemValue">{data?.agence}</span>
                   </div>
                   <div className="detailItem">
                     <span className="itemKey">Country:</span>

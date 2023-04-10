@@ -7,7 +7,7 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="avatar" />
+          <img className="cellImg" src="https://tastear.wearefew.opalstacked.com/wp-content/uploads/2019/03/Critt.-County-Farm-Family-2010-Wallace-Family-034-1024x680.jpg" alt="avatar" />
          {params.row.fullName.toUpperCase()}
         </div>
       );

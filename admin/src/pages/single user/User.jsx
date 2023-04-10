@@ -9,7 +9,7 @@ const User = () => {
   useEffect(() => {
     const id = localStorage.getItem("userId");
     const getUser = async (id) => {
-      const res = await axios.get("/admin/singleClient/" + id, config);
+      const res = await axios.get("/admin/getClientById/" + id, config);
       //   data.push(res.data);
       setData(res.data);
       console.log(data);
