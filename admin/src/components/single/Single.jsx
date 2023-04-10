@@ -2,7 +2,7 @@ import "./single.scss";
 import Sidebar from "../sidebar/Sidebar";
 import Navbar from "../navbar/Navbar";
 import { Link } from "react-router-dom";
-import New from "../../screens/new/New";
+import New from "../../pages/new/New";
 import { userInputs } from "../../formSource";
 
 const Single = ({ data }) =>

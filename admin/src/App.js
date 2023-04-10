@@ -1,7 +1,7 @@
-import Home from "./screens/home/Home";
-import Login from "./screens/login/Login";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
 import Single from "./components/single/Single";
-import New from "./screens/new/New";
+import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { carInputs, compteInputs, productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
@@ -9,12 +9,12 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Profile from "./screens/profile/Profile";
-import User from "./screens/single user/User";
-import Users from "./screens/all users/Users";
-import Cars from "./screens/cars/Cars";
-import Comptes from "./screens/comptes/Comptes";
-import Compte from "./screens/single compte/Compte";
+import Profile from "./pages/profile/Profile";
+import User from "./pages/single user/User";
+import Users from "./pages/all users/Users";
+import Cars from "./pages/cars/Cars";
+import Comptes from "./pages/comptes/Comptes";
+import Compte from "./pages/single compte/Compte";
 
 
 function App()

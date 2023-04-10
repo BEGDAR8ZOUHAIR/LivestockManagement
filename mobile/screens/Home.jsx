@@ -26,6 +26,17 @@ const Home = () =>
         <Text style={styles.info}>Cattle</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity style={styles.menuBox}
+        onPress={() => navigation.navigate("Farms")}
+
+      >
+        <Image
+          style={styles.icon}
+          source={require("../assets/tractor.png")}
+        />
+        <Text style={styles.info}>Ferme</Text>
+      </TouchableOpacity>
+
       <TouchableOpacity style={styles.menuBox}>
         <Image
           style={styles.icon}
@@ -34,13 +45,7 @@ const Home = () =>
         <Text style={styles.info}>milk Records</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.menuBox}>
-        <Image
-          style={styles.icon}
-          source={require("../assets/tractor.png")}
-        />
-        <Text style={styles.info}>Ferme</Text>
-      </TouchableOpacity>
+      
 
       <TouchableOpacity style={styles.menuBox}>
         <Image

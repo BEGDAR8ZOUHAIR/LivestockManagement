@@ -16,11 +16,12 @@ import
 
 const AddAnimal = () =>
 {
- 
+
     const navigation = useNavigation();
     const [name, setName] = useState("");
     const [type, setType] = useState("");
     const [age, setAge] = useState("");
+    const [gender, setGender] = useState("");
     const [weight, setWeight] = useState("");
     const [birthDate, setBirthDate] = useState("");
     const [dateOfEntry, setDateOfEntry] = useState("");
@@ -32,19 +33,7 @@ const AddAnimal = () =>
     const [note, setNote] = useState("");
     const [image, setImage] = useState("");
 
-    const typesOfCattle = [
-        { label: "Cow", value: "Cow" },
-        { label: "Bull", value: "Bull" },
-        { label: "Heifer", value: "Heifer" },
-        { label: "Calf", value: "Calf" },
-        { label: "Steer", value: "Steer" },
-        { label: "Bull Calf", value: "Bull Calf" },
-        { label: "Heifer Calf", value: "Heifer Calf" },
-        { label: "Bull Calves", value: "Bull Calves" },
-        { label: "Heifer Calves", value: "Heifer Calves" },
-        { label: "Steers", value: "Steers" },
-    ];
-        
+
 
 
     const handleAddAnimal = async () =>
@@ -94,11 +83,7 @@ const AddAnimal = () =>
     return (
         <ScrollView>
             <View style={styles.container}>
-                {/* <View style={styles.header}>
-                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                        Add Animal
-                    </Text>
-                </View> */}
+
                 <View style={styles.form}>
                     <TextInput
                         style={styles.input}
@@ -106,73 +91,69 @@ const AddAnimal = () =>
                         value={name}
                         onChangeText={(text) => setName(text)}
                     />
-                  
-                    {/* <Picker
-                        selectedValue={type}
-                        style={{ height: 50, width: 150 }}
-                        onValueChange={(itemValue, itemIndex) => setType(itemValue)}
-                    >
-                        {typesOfCattle.map((item, index) => (   
-                            <Picker.Item label={item.label} value={item.value} key={index} />
-                        ))}
-                    </Picker> */}
-
                     <TextInput
                         style={styles.input}
                         placeholder="Gender"
-                        value="gender"
+                        value={gender}
                         onChangeText={(text) => setGender(text)}
                     />
-                   
+
                     <TextInput
                         style={styles.input}
                         placeholder="Age"
                         value={age}
+                        type="number"
                         onChangeText={(text) => setAge(text)}
                     />
                     <TextInput
                         style={styles.input}
                         placeholder="Weight"
                         value={weight}
+                        type="number"
                         onChangeText={(text) => setWeight(text)}
                     />
                     <TextInput
                         style={styles.input}
                         placeholder="Birth Date"
                         value={birthDate}
+                        type="date"
                         onChangeText={(text) => setBirthDate(text)}
                     />
                     <TextInput
                         style={styles.input}
                         placeholder="Date Of Entry"
                         value={dateOfEntry}
+                        type="date"
                         onChangeText={(text) => setDateOfEntry(text)}
                     />
                     <TextInput
                         style={styles.input}
                         placeholder="Obtained From"
                         value={obtainedFrom}
+                        type="text"
                         onChangeText={(text) => setObtainedFrom(text)}
                     />
                     <TextInput
                         style={styles.input}
                         placeholder="Obtained By"
                         value={obtainedBy}
+                        type="text"
                         onChangeText={(text) => setObtainedBy(text)}
                     />
                     <TextInput
                         style={styles.input}
                         placeholder="Status"
                         value={status}
+                        type="text"
                         onChangeText={(text) => setStatus(text)}
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder="Mother"    
+                        placeholder="Mother"
                         value={mother}
                         onChangeText={(text) => setMother(text)}
                     />
-                    <TextInput  
+                    <TextInput
                         style={styles.input}
                         placeholder="Father"
                         value={father}
@@ -182,8 +163,9 @@ const AddAnimal = () =>
                         style={styles.input}
                         placeholder="Note"
                         value={note}
+                        type="text"
                         onChangeText={(text) => setNote(text)}
-                    />  
+                    />
                     <TextInput
                         style={styles.input}
                         placeholder="Image"
@@ -199,7 +181,7 @@ const AddAnimal = () =>
                 </View>
             </View>
         </ScrollView>
-        
+
     );
 };
 
@@ -218,7 +200,7 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        width: "100%",  
+        width: "100%",
         height: 40,
         padding: 10,
         borderWidth: 1,

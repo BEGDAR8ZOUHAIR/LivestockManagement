@@ -1,33 +1,26 @@
 import React, { useState, useEffect } from "react";
 import
 {
+  StyleSheet,
   View,
   Text,
-  StyleSheet,
-  TextInput,
   TouchableOpacity,
-  ActivityIndicator,
   Image,
+  ActivityIndicator,
   ScrollView,
-
-
+  TextInput,
 } from "react-native";
-import
-  {
-    useNavigation,
-    useRoute
-  } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const UpdateAnimal = ({ navigation }) =>
 {
-  // const navigation = useNavigation();
-  const route = useRoute();
-  
-  const [refresh, setRefresh] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [id, setId] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isUpdating, setIsUpdating] = useState(false);
   const [name, setName] = useState("");
-  const [type, setType] = useState("");
+  const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
   const [birthDate, setBirthDate] = useState("");
@@ -39,31 +32,27 @@ const UpdateAnimal = ({ navigation }) =>
   const [father, setFather] = useState("");
   const [note, setNote] = useState("");
   const [image, setImage] = useState("");
-  const [gender, setGender] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
+  const [refresh, setRefresh] = useState(false);
 
 
+  const route = useRoute();
 
-
-  
   useEffect(() =>
   {
-    async function fetchUserData()
+    async function fetchCattleData()
     {
-      const id = route.params?.id;
-      console.log(id)
-
+      const id = await AsyncStorage.getItem('id');
+      console.log(id);
       try
       {
-        const response = await fetch(`http://172.16.100.121:5000/client/getCattleById/${id}`);
+        const response = await fetch(
+          `http://172.16.100.121:5000/client/getCattleById/${id}`
+        );
         const data = await response.json();
-        setId(data._id);
+        setId(data);
         setName(data.name);
-        setType(data.type);
-        setAge(data.age);
         setGender(data.gender);
+        setAge(data.age);
         setWeight(data.weight);
         setBirthDate(data.birthDate);
         setDateOfEntry(data.dateOfEntry);
@@ -73,7 +62,9 @@ const UpdateAnimal = ({ navigation }) =>
         setMother(data.mother);
         setFather(data.father);
         setNote(data.note);
+        setRefresh(data.refresh);
         setImage(data.image);
+
 
       } catch (error)
       {
@@ -83,156 +74,143 @@ const UpdateAnimal = ({ navigation }) =>
         setIsLoading(false);
       }
     }
-    fetchUserData();
+    fetchCattleData();
   }, [refresh]);
 
-  const handleSave = async () =>
+  async function handleUpdate()
   {
+    const id = await AsyncStorage.getItem('id');
+    setIsUpdating(true);
 
-    const id = route.params?.id;
-    const data = {
-      name,
-      type,
-      age,
-      gender,
-      weight,
-      birthDate,
-      dateOfEntry,
-      obtainedFrom,
-      obtainedBy,
-      status,
-      mother,
-      father,
-      note,
-      image,
-    };
     try
     {
-      await fetch(`http://172.16.100.121:5000/client/updateCattle/${id}`, {
-        method: 'PUT',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-      console.log(data,"Data updated successfully");
-      navigation.navigate(); //
+      await fetch(
+        `http://172.16.100.121:5000/client/updateCattle/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            age,
+            gender,
+            weight,
+            birthDate,
+            dateOfEntry,
+            obtainedFrom,
+            obtainedBy,
+            status,
+            mother,
+            father,
+            note,
+            image
+          }),
+        });
+      navigation.navigate('DetailAnimal', { id, setRefresh });
     } catch (error)
     {
       console.error(error);
     }
   }
 
+
+
   if (isLoading)
   {
     return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
-        <Text>Loading...</Text>
+      <View style={styles.loading}>
+        <ActivityIndicator size="large" color="#3ED400" />
       </View>
     );
   }
-
   return (
-
     <ScrollView style={styles.container}>
       <View style={styles.headerContainer}>
-        <Image
-          style={styles.image}
-          source={require("../../assets/cover.jpg")}
-        />
-      </View>
-      <View style={styles.header}>
-        <TextInput
-          style={styles.input}
-          placeholder="Name"
-          value={name}
-          onChangeText={(text) => setName(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Type"
-          value={type}
-          onChangeText={(text) => setType(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Age"
-          value={age}
-          onChangeText={(text) => setAge(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="
-Gender"
-          value={gender}
-          onChangeText={(text) => setGender(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Weight"
-          value={weight}
-          onChangeText={(text) => setWeight(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Birth Date"
-          value={birthDate}
-          onChangeText={(text) => setBirthDate(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Date of Entry"
-          value={dateOfEntry}
-          onChangeText={(text) => setDateOfEntry(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Obtained From"
-          value={obtainedFrom}
-          onChangeText={(text) => setObtainedFrom(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Obtained By"
-          value={obtainedBy}
-          onChangeText={(text) => setObtainedBy(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Status"
-          value={status}
-          onChangeText={(text) => setStatus(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Mother"
-          value={mother}
-          onChangeText={(text) => setMother(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Father"
-          value={father}
-          onChangeText={(text) => setFather(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Note"
-          value={note}
-          onChangeText={(text) => setNote(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Image URL"
-          value={image}
-          onChangeText={(text) => setImage(text)}
-        />
-        <TouchableOpacity style={styles.button} onPress={handleSave}>
-          <Text style={styles.buttonText}>Save</Text>
-        </TouchableOpacity>
+        {/* <Image style={styles.coverPhoto} source={{ uri: id.image }} /> */}
+        <View style={styles.bodyContainer}>
+          <View style={styles.bodyContent}>
+            <TextInput
+              style={styles.input}
+              placeholder="Name"
+              value={name}
+              onChangeText={(text) => setName(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Gender"
+              value={gender}
+              onChangeText={(text) => setGender(text)}
+            />
 
+            <TextInput
+              style={styles.input}
+              placeholder="Age"
+              value={age}
+              onChangeText={(text) => setAge(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Weight"
+              value={weight}
+              onChangeText={(text) => setWeight(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Birth Date"
+              value={birthDate}
+              onChangeText={(text) => setBirthDate(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Date of Entry"
+              value={dateOfEntry}
+              onChangeText={(text) => setDateOfEntry(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Obtained From"
+              value={obtainedFrom}
+              onChangeText={(text) => setObtainedFrom(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Obtained By"
+              value={obtainedBy}
+              onChangeText={(text) => setObtainedBy(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Status"
+              value={status}
+              onChangeText={(text) => setStatus(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Mother"
+              value={mother}
+              onChangeText={(text) => setMother(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Father"
+              value={father}
+              onChangeText={(text) => setFather(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Note"
+              value={note}
+              onChangeText={(text) => setNote(text)}
+            />
+            <TouchableOpacity
+              style={styles.buttonContainer}
+              onPress={handleUpdate}
+            >
+              <Text style={styles.buttonText}>Update</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     </ScrollView>
   );
@@ -241,47 +219,58 @@ Gender"
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
   headerContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 30,
-    backgroundColor: "#00ff00",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  header: {
-    paddingHorizontal: 20,
-    paddingVertical: 30,
+  coverPhoto: {
+    width: '100%',
+    height: 200,
   },
-  image: {
-    width: 150,
-    height: 150,
+  nameText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  bodyContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  bodyContent: {
+    flex: 1,
+    padding: 30,
+    borderRadius: 5,
+
   },
   input: {
+    height: 40,
+    borderColor: 'gray',
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 5,
+    marginBottom: 10,
     padding: 10,
-    marginVertical: 10,
-    fontSize: 18,
-  },
-  button: {
-    backgroundColor: "#00ff00",
-    padding: 15,
     borderRadius: 5,
-    marginTop: 20,
+
   },
-  buttonText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  error: {
-    color: "red",
-    textAlign: "center",
+  buttonContainer: {
+    backgroundColor: '#3ED400',
+    paddingVertical: 15,
+    borderRadius: 5,
     marginTop: 10,
   },
+  buttonText: {
+    textAlign: 'center',
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+
 });
 
 export default UpdateAnimal;

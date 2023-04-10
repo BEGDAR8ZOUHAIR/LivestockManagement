@@ -12,6 +12,10 @@ import AddAnimal from './screens/animals/AddAnimal';
 import Animals from './screens/animals/Animals';
 import DetailAnimal from './screens/animals/DetailAnimal';
 import UpdateAnimal from './screens/animals/UpdateAnimal';
+import AddFarm from './screens/farms/AddFarm';
+import Farms from './screens/farms/Farms';
+import DetailFarm from './screens/farms/DetailFarm';
+
 
 import Nav from './components/Nav';
 
@@ -92,10 +96,27 @@ export default function App()
               // headerShown: false
             }}
           />
-          
-
-          
-
+          <Stack.Screen
+            name="AddFarm"
+            component={AddFarm}
+            options={{  
+              // headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="Farms"
+            component={Farms}
+            options={{
+              // headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="DetailFarm"
+            component={DetailFarm}
+            options={{
+              // headerShown: false
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

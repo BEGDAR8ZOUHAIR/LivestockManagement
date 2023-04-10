@@ -16,7 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useRoute } from "@react-navigation/native";
 
-const DetailAnimal = ({ navigation }) =>
+const DetailFarm = ({ navigation }) =>
 {
     const [id, setId] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +30,7 @@ const DetailAnimal = ({ navigation }) =>
             console.log(id, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
             try
             {
-                const response = await fetch(`http://172.16.100.121:5000/client/getCattleById/${id}`);
+                const response = await fetch(`http://172.16.100.121:5000/client/getFarmById/${id}`);
                 const data = await response.json();
                 setId(data);
                 await AsyncStorage.setItem('id', data._id);
@@ -63,23 +63,15 @@ const DetailAnimal = ({ navigation }) =>
                     source={{ uri: id.image }}
                 />
                 <Text style={styles.nameText}>{id.name}</Text>
-                {/* icons update */}
-
 
                 <View style={styles.bodyContainer}>
                     <View style={styles.bodyContent}>
                         <Text style={styles.textInfo}>Name: {id.name}</Text>
-                        <Text style={styles.textInfo}>Name: {id.gender}</Text>
-                        <Text style={styles.textInfo}>Age: {id.age}</Text>
-                        <Text style={styles.textInfo}>Weight: {id.weight}</Text>
-                        <Text style={styles.textInfo}>Birth Date: {id.birthDate}</Text>
-                        <Text style={styles.textInfo}>Date Of Entry: {id.dateOfEntry}</Text>
-                        <Text style={styles.textInfo}>Obtained From: {id.obtainedFrom}</Text>
-                        <Text style={styles.textInfo}>Obtained By: {id.obtainedBy}</Text>
-                        <Text style={styles.textInfo}>Status: {id.status}</Text>
-                        <Text style={styles.textInfo}>Mother: {id.mother}</Text>
-                        <Text style={styles.textInfo}>Father: {id.father}</Text>
-                        <Text style={styles.textInfo}>Note: {id.note}</Text>
+                        <Text style={styles.textInfo}>Name: {id.category}</Text>
+                        <Text style={styles.textInfo}>Age: {id.cattlebreed}</Text>
+                        <Text style={styles.textInfo}>Weight: {id.cattlegroup}</Text>
+                        <Text style={styles.textInfo}>Weight: {id.note}</Text>
+
                     </View>
                     <View style={styles.iconContainer}>
                         <TouchableOpacity
@@ -139,7 +131,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
 });
-export default DetailAnimal;
+export default DetailFarm;
 
 
 
