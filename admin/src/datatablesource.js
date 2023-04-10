@@ -81,44 +81,65 @@ export const carColumns = [
   },
 ];
 
+// name,
+//   category,
+//   cattlebreed,
+//   cattlegroup,
+//   note,
+//   image,
 export const compteColumns = [
-  { field: "_id", headerName: "ID", width: 220 },
   {
-    field: "rib",
-    headerName: "Rib",
-    width: 170,
-  },
-  {
-    field: "solde",
-    headerName: "Solde",
-    width: 170,
-  },
-  {
-    field: "type",
-    headerName: "Type",
-    width: 170,
-  },
-  {
-    field: "status",
-    headerName: "Status",
-    width: 170,
-    renderCell: (params) => {
+    field: "image",
+    headerName: "Farm",
+    renderCell: (params) =>
+    {
       return (
-        <div className={`cellWithStatus ${params.row.status}`}>
-          {params.row.status}
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.image} alt="avatar" />
+          {params.row.name.toUpperCase()}
         </div>
       );
     },
+    width: 200,
+  },
+ 
+  { field: "name", headerName: "Name", width: 220 },
+  {
+    field: "category",
+    headerName: "Category",
+    width: 170,
   },
   {
-    // get the name of the client from the object id
-    field: "idClient",
-    headerName: "Client",
+    field: "cattlebreed",
+    headerName: "Cattle Breed",
     width: 170,
-    renderCell: (params) => {
-      return <div className="cellWithImg">{params.row.idClient.fullName}</div>;
-    },
   },
+  {
+    field: "cattlegroup",
+    headerName: "Cattle Group",
+    width: 170,
+  },
+  // {
+  //   field: "status",
+  //   headerName: "Status",
+  //   width: 170,
+  //   renderCell: (params) => {
+  //     return (
+  //       <div className={`cellWithStatus ${params.row.status}`}>
+  //         {params.row.status}
+  //       </div>
+  //     );
+  //   },
+  // },
+  // {
+  //   // get the name of the client from the object id
+  //   field: "idClient",
+  //   headerName: "Client",
+  //   width: 170,
+  //   renderCell: (params) => {
+  //     return <div className="cellWithImg">{params.row.idClient.fullName}</div>;
+  //   },
+  // },
   // {
   //   // get the name of the client from the object id
   //   field: "solde",

@@ -47,16 +47,11 @@ const Sidebar = () => {
               <span>Users</span>
             </li>
           </Link>
-          {/* <Link to="/cars" style={{ textDecoration: "none" }}>
-            <li>
-              <TimeToLeaveIcon className="icon" />
-              <span>Cars</span>
-            </li>
-          </Link> */}
+        
           <Link to="/comptes" style={{ textDecoration: "none" }}>
             <li>
               <CreditCardIcon className="icon" />
-              <span>Comptes</span>
+              <span>Farms</span>
             </li>
           </Link>
           <p className="title">USEFUL</p>
