@@ -16,6 +16,11 @@ import AddFarm from './screens/farms/AddFarm';
 import Farms from './screens/farms/Farms';
 import DetailFarm from './screens/farms/DetailFarm';
 import UpdateFarm from './screens/farms/UpdateFarm';
+import Milk from './screens/milk/Milk';
+import DetailMilk from './screens/milk/DetailMilk';
+import UpdateMilk from './screens/milk/UpdateMilk';
+import  AddMilk from './screens/milk/AddMilk';
+
 
 
 import Nav from './components/Nav';
@@ -123,6 +128,35 @@ export default function App()
             component={UpdateFarm}
             options={{  
               // headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="Milk"
+            component={Milk}
+            options={{
+              // headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="AddMilk"
+            component={AddMilk}
+            options={{
+              // headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="DetailMilk"
+            component={DetailMilk}
+            options={{
+              // headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="UpdateMilk"
+            component={UpdateMilk}
+            options={{
+              // headerShown: false
+              
             }}
           />
           

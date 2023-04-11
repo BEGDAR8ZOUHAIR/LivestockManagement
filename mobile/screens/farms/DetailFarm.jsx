@@ -13,7 +13,6 @@ import
 import { AntDesign } from "@expo/vector-icons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 import { useRoute } from "@react-navigation/native";
 
 const DetailFarm = ({ navigation }) =>
@@ -53,7 +52,23 @@ const DetailFarm = ({ navigation }) =>
         return () => clearInterval(intervalId);
     }, [refresh]);
 
+    const handleDelete = async () =>
+    {
+        const id = route.params?.id
+        try
+        {
+            const response = await fetch(`http://172.16.100.121:5000/client/deleteFarm/${id}`, {
+                method: 'DELETE',
+            });
+            const data = await response.json();
+            console.log(data, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ");
+            navigation.navigate('Farms');
+        } catch (error)
+        {
+            console.error(error);
 
+        }
+    };
 
     if (isLoading)
     {
@@ -76,7 +91,7 @@ const DetailFarm = ({ navigation }) =>
                 <View style={styles.bodyContainer}>
                     <View style={styles.bodyContent}>
                         <Text style={styles.textInfo}>Name: {id.name}</Text>
-                        <Text style={styles.textInfo}>Name: {id.category}</Text>
+                        <Text style={styles.textInfo}>Category: {id.category}</Text>
                         <Text style={styles.textInfo}>Age: {id.cattlebreed}</Text>
                         <Text style={styles.textInfo}>Weight: {id.cattlegroup}</Text>
                         <Text style={styles.textInfo}>Weight: {id.note}</Text>
@@ -91,6 +106,7 @@ const DetailFarm = ({ navigation }) =>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.icon}
+                            onpress={handleDelete}
                         >
                             <AntDesign name="delete" size={24} color="red" />
                         </TouchableOpacity>
@@ -141,7 +157,4 @@ const styles = StyleSheet.create({
     },
 });
 export default DetailFarm;
-
-
-
 

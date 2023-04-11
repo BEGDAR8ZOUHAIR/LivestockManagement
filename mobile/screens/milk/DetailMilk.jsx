@@ -13,10 +13,9 @@ import
 import { AntDesign } from "@expo/vector-icons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 import { useRoute } from "@react-navigation/native";
 
-const DetailAnimal = ({ navigation }) =>
+const DetailMilk = ({ navigation }) =>
 {
     const [id, setId] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +30,7 @@ const DetailAnimal = ({ navigation }) =>
             console.log(id, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
             try
             {
-                const response = await fetch(`http://172.16.100.121:5000/client/getCattleById/${id}`);
+                const response = await fetch(`http://172.16.100.121:5000/client/getMilkById/${id}`);
                 const data = await response.json();
                 setId(data);
                 await AsyncStorage.setItem('id', data._id);
@@ -53,6 +52,24 @@ const DetailAnimal = ({ navigation }) =>
         return () => clearInterval(intervalId);
     }, [refresh]);
 
+    const handleDelete = async () =>
+    {
+        const id = route.params?.id
+        try
+        {
+            const response = await fetch(`http://172.16.100.121:5000/client/deleteFarm/${id}`, {
+                method: 'DELETE',
+            });
+            const data = await response.json();
+            console.log(data, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ");
+            navigation.navigate('Farms');
+        } catch (error)
+        {
+            console.error(error);
+
+        }
+    };
+
     if (isLoading)
     {
         return (
@@ -67,36 +84,38 @@ const DetailAnimal = ({ navigation }) =>
 
                 <Image
                     style={styles.coverPhoto}
-                    source={{ uri: id.image }}
+                    source={
+                        require('../../assets/farmer.png')
+                    }
                 />
-                <Text style={styles.nameText}>{id.name}</Text>
-                {/* icons update */}
-
+                <Text style={styles.nameText}></Text>
 
                 <View style={styles.bodyContainer}>
                     <View style={styles.bodyContent}>
-                        <Text style={styles.textInfo}>Name: {id.name}</Text>
-                        <Text style={styles.textInfo}>Gender: {id.gender}</Text>
-                        <Text style={styles.textInfo}>Age: {id.age}</Text>
-                        <Text style={styles.textInfo}>Weight: {id.weight}</Text>
-                        <Text style={styles.textInfo}>Birth Date: {id.birthDate}</Text>
-                        <Text style={styles.textInfo}>Date Of Entry: {id.dateOfEntry}</Text>
-                        <Text style={styles.textInfo}>Obtained From: {id.obtainedFrom}</Text>
-                        <Text style={styles.textInfo}>Obtained By: {id.obtainedBy}</Text>
-                        <Text style={styles.textInfo}>Status: {id.status}</Text>
-                        <Text style={styles.textInfo}>Mother: {id.mother}</Text>
-                        <Text style={styles.textInfo}>Father: {id.father}</Text>
+                        {/* date,
+                        AMTotal,
+                        PMTotal,
+                        Total,
+                        totalUsed,
+                        note, */}
+                        <Text style={styles.textInfo}>Date: {id.date}</Text>
+                        <Text style={styles.textInfo}>AM Total: {id.AMTotal}</Text>
+                        <Text style={styles.textInfo}>PM Total: {id.PMTotal}</Text>
+                        <Text style={styles.textInfo}>Total: {id.Total}</Text>
+                        <Text style={styles.textInfo}>Total Used: {id.totalUsed}</Text>
                         <Text style={styles.textInfo}>Note: {id.note}</Text>
+
                     </View>
                     <View style={styles.iconContainer}>
                         <TouchableOpacity
                             style={styles.icon}
-                            onPress={() => navigation.navigate('UpdateAnimal', { id: id._id })}
+                            onPress={() => navigation.navigate('UpdateMilk', { id: id._id })}
                         >
                             <AntDesign name="edit" size={24} color="green" />
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.icon}
+                            onpress={handleDelete}
                         >
                             <AntDesign name="delete" size={24} color="red" />
                         </TouchableOpacity>
@@ -146,8 +165,5 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
 });
-export default DetailAnimal;
-
-
-
+export default DetailMilk;
 

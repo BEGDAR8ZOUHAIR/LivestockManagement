@@ -37,7 +37,9 @@ const Home = () =>
         <Text style={styles.info}>Ferme</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.menuBox}>
+      <TouchableOpacity style={styles.menuBox}
+        onPress={() => navigation.navigate("Milk")}
+      >
         <Image
           style={styles.icon}
           source={require("../assets/milk.png")}

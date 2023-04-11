@@ -31,6 +31,26 @@ const {
     deleteCattle,
 } = require("../controller/cattleController");
 
+// milk controller functions
+const {
+    getMilk,
+    getMilkById,
+    createMilk,
+    updateMilk,
+    deleteMilk,
+} = require("../controller/milkController");
+
+// worker controller functions
+const { 
+    getWorkers,
+    getWorkerById,
+    createWorker,
+    updateWorker,   
+    deleteWorker,
+} = require("../controller/workerController");
+
+
+
 //  Protect all routes
 const { protect } = require("../middleware/authMiddleware");
 
@@ -55,7 +75,26 @@ router.route("/getCattle").get( getCattle);
 router.route("/getCattleById/:id").get( getCattleById);
 router.route("/createCattle").post( createCattle);
 router.route("/updateCattle/:id").put( updateCattle);
-router.route("/deleteCattle/:id").delete( deleteCattle);
+router.route("/deleteCattle/:id").delete(deleteCattle);
+
+// Create route for milk
+router.route("/getMilk").get(getMilk);
+router.route("/getMilkById/:id").get(getMilkById);
+router.route("/createMilk").post(createMilk);
+router.route("/updateMilk/:id").put(updateMilk);
+router.route("/deleteMilk/:id").delete(deleteMilk);
+
+
+// Create route for worker
+router.route("/getWorkers").get(getWorkers);
+router.route("/getWorkerById/:id").get(getWorkerById);
+router.route("/createWorker").post(createWorker);
+router.route("/updateWorker/:id").put(updateWorker);
+router.route("/deleteWorker/:id").delete(deleteWorker);
+
+
+
+
 
 
 
