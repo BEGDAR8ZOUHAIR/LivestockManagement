@@ -22,7 +22,7 @@ import UpdateMilk from './screens/milk/UpdateMilk';
 import AddMilk from './screens/milk/AddMilk';
 import AddWorker from './screens/worker/AddWorker';
 import Workers from './screens/worker/Workers';
-// import DetailWorker from './screens/worker/DetailWorker';
+import DetailWorker from './screens/worker/DetailWorker';
 // import UpdateWorker from './screens/worker/UpdateWorker';
 
 
@@ -177,20 +177,20 @@ export default function App()
               // headerShown: false
             }}
           />
-          {/* <Stack.Screen
+            <Stack.Screen
             name="DetailWorker"
             component={DetailWorker}
             options={{
               // headerShown: false
             }}
-          />
-          <Stack.Screen
+          /> 
+          {/* <Stack.Screen
             name="UpdateWorker"
             component={UpdateWorker}
             options={{
               // headerShown: false
             }}
-          /> */}
+          />  */}
           
         </Stack.Navigator>
       </NavigationContainer>

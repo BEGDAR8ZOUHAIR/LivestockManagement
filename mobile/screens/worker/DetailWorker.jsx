@@ -93,10 +93,11 @@ const DetailWorker = ({ navigation }) =>
                 <View style={styles.bodyContainer}>
                     <View style={styles.bodyContent}>
                         <Text style={styles.textInfo}>Name: {id.name}</Text>
-                        <Text style={styles.textInfo}>Category: {id.category}</Text>
-                        <Text style={styles.textInfo}>Age: {id.cattlebreed}</Text>
-                        <Text style={styles.textInfo}>Weight: {id.cattlegroup}</Text>
-                        <Text style={styles.textInfo}>Weight: {id.note}</Text>
+                        <Text style={styles.textInfo}>Phone: {id.phone}</Text>
+                        <Text style={styles.textInfo}>Address: {id.address}</Text>
+                        <Text style={styles.textInfo}>Note: {id.note}</Text>
+                    
+            
 
                     </View>
                     <View style={styles.iconContainer}>
@@ -156,6 +157,7 @@ const styles = StyleSheet.create({
     bodyContent: {
         width: '100%',
         paddingHorizontal: 20,
+        marginTop: 20,
     },
 });
 export default DetailWorker;
