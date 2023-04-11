@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const Cattle = require("../models/cattleModel");
+const Client = require("../models/clientModel");
 
 
 // @desc    Get all cattle
@@ -10,6 +11,7 @@ const getCattle = asyncHandler(async (req, res) => {
     res.json(cattle);
 }
 );
+
 
 
 // @desc    Get cattle by id
@@ -97,20 +99,21 @@ const updateCattle = asyncHandler(async (req, res) => {
     const cattle = await Cattle.findById(req.params.id);
 
     if (cattle) {
-        cattle.name = name;
-        cattle.type = type;
-        cattle.age = age;
-        cattle.gender = gender;
-        cattle.weight = weight;
-        cattle.birthDate = birthDate;
-        cattle.dateOfEntry = dateOfEntry;
-        cattle.obtainedFrom = obtainedFrom;
-        cattle.obtainedBy = obtainedBy;
-        cattle.status = status;
-        cattle.mother = mother;
-        cattle.father = father;
-        cattle.note = note;
-        cattle.image = image;
+        cattle.name = req.body.name || cattle.name;
+        cattle.type = req.body.type || cattle.type;
+        cattle.age = req.body.age || cattle.age;    
+        cattle.gender = req.body.gender || cattle.gender;
+        cattle.weight = req.body.weight || cattle.weight;
+        cattle.birthDate = req.body.birthDate || cattle.birthDate;
+        cattle.dateOfEntry = req.body.dateOfEntry || cattle.dateOfEntry;
+        cattle.obtainedFrom = req.body.obtainedFrom || cattle.obtainedFrom;
+        cattle.obtainedBy = req.body.obtainedBy || cattle.obtainedBy;
+        cattle.status = req.body.status || cattle.status;
+        cattle.mother = req.body.mother || cattle.mother;
+        cattle.father = req.body.father || cattle.father;
+        cattle.note = req.body.note || cattle.note;
+        cattle.image = req.body.image || cattle.image;
+        
 
         const updatedCattle = await cattle.save();
         res.json(updatedCattle);
@@ -120,7 +123,6 @@ const updateCattle = asyncHandler(async (req, res) => {
     }
 }
 );
-
 
 // @desc    Delete cattle
 // @route   DELETE /api/cattle/:id
@@ -146,7 +148,6 @@ const totalCattle = asyncHandler(async (req, res) =>
     res.json(total);
 }
 );
-
 
 module.exports = {
     getCattle,

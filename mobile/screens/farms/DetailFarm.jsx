@@ -21,6 +21,7 @@ const DetailFarm = ({ navigation }) =>
     const [id, setId] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const route = useRoute()
+    const [refresh, setRefresh] = useState(false);
 
     useEffect(() =>
     {
@@ -44,7 +45,15 @@ const DetailFarm = ({ navigation }) =>
             }
         }
         fetchCattleData();
-    }, []);
+        const intervalId = setInterval(() =>
+        {
+            setRefresh(!refresh);
+        }, 10000);
+
+        return () => clearInterval(intervalId);
+    }, [refresh]);
+
+
 
     if (isLoading)
     {
@@ -76,7 +85,7 @@ const DetailFarm = ({ navigation }) =>
                     <View style={styles.iconContainer}>
                         <TouchableOpacity
                             style={styles.icon}
-                            onPress={() => navigation.navigate('UpdateAnimal', { id: id._id })}
+                            onPress={() => navigation.navigate('UpdateFarm', { id: id._id })}
                         >
                             <AntDesign name="edit" size={24} color="green" />
                         </TouchableOpacity>

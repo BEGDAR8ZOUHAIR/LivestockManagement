@@ -133,7 +133,7 @@ const LoginScreen = () =>
         )}
         <TouchableOpacity
           style={{ marginTop: 20 }}
-          onPress={() => navigation.navigate("Nav")}
+          onPress={() => navigation.navigate("Register")}
         >
           <Text style={styles.registerText}>
             Don't have an account?{" "}

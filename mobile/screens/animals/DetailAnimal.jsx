@@ -21,6 +21,7 @@ const DetailAnimal = ({ navigation }) =>
     const [id, setId] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const route = useRoute()
+    const [refresh, setRefresh] = useState(false);
 
     useEffect(() =>
     {
@@ -44,7 +45,13 @@ const DetailAnimal = ({ navigation }) =>
             }
         }
         fetchCattleData();
-    }, []);
+        const intervalId = setInterval(() =>
+        {
+            setRefresh(!refresh);
+        }, 10000);
+
+        return () => clearInterval(intervalId);
+    }, [refresh]);
 
     if (isLoading)
     {

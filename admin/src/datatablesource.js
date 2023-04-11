@@ -18,18 +18,7 @@ export const userColumns = [
     headerName: "Email",
     width: 210,
   },
-  // {
-  //   field: "status",
-  //   headerName: "Status",
-  //   width: 200,
-  //   renderCell: (params) => {
-  //     return (
-  //       <div className={`cellWithStatus ${params.row.status}`}>
-  //         {params.row.status}
-  //       </div>
-  //     );
-  //   },
-  // },
+
   {
     field: "phoneNumber",
     headerName: "Phone Number",

@@ -21,6 +21,7 @@
     "expo": "^47.0.13",
     "expo-constants": "~14.0.2",
     "expo-dev-client": "~2.0.1",
+    "expo-image-picker": "~14.0.2",
     "expo-location": "~15.0.1",
     "expo-status-bar": "~1.4.4",
     "prop-types": "^15.8.1",

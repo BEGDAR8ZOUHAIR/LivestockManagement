@@ -15,6 +15,7 @@ import UpdateAnimal from './screens/animals/UpdateAnimal';
 import AddFarm from './screens/farms/AddFarm';
 import Farms from './screens/farms/Farms';
 import DetailFarm from './screens/farms/DetailFarm';
+import UpdateFarm from './screens/farms/UpdateFarm';
 
 
 import Nav from './components/Nav';
@@ -117,6 +118,14 @@ export default function App()
               // headerShown: false
             }}
           />
+          <Stack.Screen
+            name="UpdateFarm"
+            component={UpdateFarm}
+            options={{  
+              // headerShown: false
+            }}
+          />
+          
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

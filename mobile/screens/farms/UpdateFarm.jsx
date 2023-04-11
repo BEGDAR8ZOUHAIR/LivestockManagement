@@ -14,29 +14,19 @@ import { useRoute } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-const UpdateAnimal = ({ navigation }) =>
+const UpdateFarm = ({ navigation }) =>
 {
   const [id, setId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isUpdating, setIsUpdating] = useState(false);
 
   const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
-  const [weight, setWeight] = useState("");
-  const [birthDate, setBirthDate] = useState("");
-  const [dateOfEntry, setDateOfEntry] = useState("");
-  const [obtainedFrom, setObtainedFrom] = useState("");
-  const [obtainedBy, setObtainedBy] = useState("");
+  const [category, setCategory] = useState("");
+  const [cattlebreed, setCattlebreed] = useState("");
+  const [cattlegroup, setCattlegroup] = useState("");
   const [note, setNote] = useState("");
   const [image, setImage] = useState("");
   const [refresh, setRefresh] = useState(false);
-  const [status, setStatus] = useState([]);
-  const [mother, setMother] = useState([]);
-  const [father, setFather] = useState([]);
-
-
-
 
   const route = useRoute();
 
@@ -49,27 +39,16 @@ const UpdateAnimal = ({ navigation }) =>
       try
       {
         const response = await fetch(
-          `http://172.16.100.121:5000/client/getCattleById/${id}`
+          `http://172.16.100.121:5000/client/getFarmById/${id}`
         );
         const data = await response.json();
         setId(data);
         setName(data.name);
-        setAge(data.age);
-        setGender(data.gender)
-        setWeight(data.weight);
-        setBirthDate(data.birthDate);
-        setDateOfEntry(data.dateOfEntry);
-        setObtainedFrom(data.obtainedFrom);
-        setObtainedBy(data.obtainedBy);
+        setCategory(data.category);
+        setCattlebreed(data.cattlebreed);
+        setCattlegroup(data.cattlegroup);
         setNote(data.note);
         setImage(data.image);
-        setStatus(data.status);
-        setMother(data.mother);
-        setFather(data.father);
-
-
-
-
       } catch (error)
       {
         console.error(error);
@@ -89,7 +68,7 @@ const UpdateAnimal = ({ navigation }) =>
     try
     {
       await fetch(
-        `http://172.16.100.121:5000/client/updateCattle/${id}`,
+        `http://172.16.100.121:5000/client/updateFarm/${id}`,
         {
           method: "PUT",
           headers: {
@@ -97,21 +76,14 @@ const UpdateAnimal = ({ navigation }) =>
           },
           body: JSON.stringify({
             name,
-            age,
-            gender,
-            weight,
-            birthDate,
-            dateOfEntry,
-            obtainedFrom,
-            obtainedBy,
-            status,
-            mother,
-            father,
+            category,
+            cattlebreed,
+            cattlegroup,
             note,
-            image
+            image,
           }),
         });
-      navigation.navigate('DetailAnimal', { id, setRefresh });
+      navigation.navigate('DetailFarm', { id, setRefresh });
     } catch (error)
     {
       console.error(error);
@@ -140,61 +112,22 @@ const UpdateAnimal = ({ navigation }) =>
             />
             <TextInput
               style={styles.input}
-              placeholder="Gender"
-              value={gender}
-              onChangeText={(text) => setGender(text)}
+              placeholder="Category"
+              value={category}
+              onChangeText={(text) => setCategory(text)}
             />
             <TextInput
               style={styles.input}
-              placeholder="Age"
-              value={age}
-              onChangeText={(text) => setAge(text)}
+              placeholder="Cattle Breed"
+              value={cattlebreed}
+              onChangeText={(text) => setCattlebreed(text)}
             />
             <TextInput
               style={styles.input}
-              placeholder="Father"
-              value={father}
-              onChangeText={(text) => setFather(text)}
+              placeholder="Cattle Group"
+              value={cattlegroup}
+              onChangeText={(text) => setCattlegroup(text)}
             />
-            <TextInput
-              style={styles.input}
-              placeholder="Weight"
-              value={weight}
-              onChangeText={(text) => setWeight(text)}
-            />
-
-
-            <TextInput
-              style={styles.input}
-              placeholder="Birth Date"
-              value={birthDate}
-              onChangeText={(text) => setBirthDate(text)}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Date of Entry"
-              value={dateOfEntry}
-              onChangeText={(text) => dateOfEntry(text)}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Obtained From"
-              value={obtainedFrom}
-              onChangeText={(text) => setObtainedFrom(text)}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Obtained By"
-              value={obtainedBy}
-              onChangeText={(text) => setObtainedBy(text)}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Status"
-              value={status}
-              onChangeText={(text) => setStatus(text)}
-            />
-
             <TextInput
               style={styles.input}
               placeholder="Note"
@@ -206,12 +139,6 @@ const UpdateAnimal = ({ navigation }) =>
               placeholder="Image"
               value={image}
               onChangeText={(text) => setImage(text)}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Mother"
-              value={mother}
-              onChangeText={(text) => setMother(text)}
             />
 
 
@@ -285,7 +212,7 @@ const styles = StyleSheet.create({
 
 });
 
-export default UpdateAnimal;
+export default UpdateFarm;
 
 
 
