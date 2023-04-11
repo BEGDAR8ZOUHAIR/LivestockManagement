@@ -47,7 +47,6 @@ const Workers = () =>
         {
             setRefresh(!refresh);
         }, 1000);
-
         return () => clearInterval(intervalId);
     }, [refresh]);
 
@@ -82,12 +81,14 @@ const Workers = () =>
                         <View style={styles.textContainer}>
 
                             <Text style={styles.nameText}>{item.name}</Text>
-                            {/* <Text style={styles.phoneText}>{item.cattlegroup}</Text> */}
+                            <Text style={styles.phoneText}>{item.address}</Text>
+                            <Text style={styles.phoneText}>{item.phone}</Text>
                         </View>
+
 
                         <TouchableOpacity
                             style={styles.animalDetailsButton}
-                            onPress={() => navigation.navigate("DetailFarm", { id: item._id })}
+                            onPress={() => navigation.navigate("DetailWorker", { id: item._id })}
                         >
                             <Entypo
                                 style={styles.animalDetailsIcon}

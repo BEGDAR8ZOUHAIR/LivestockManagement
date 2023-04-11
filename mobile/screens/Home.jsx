@@ -46,8 +46,15 @@ const Home = () =>
         />
         <Text style={styles.info}>milk Records</Text>
       </TouchableOpacity>
-
-      
+      <TouchableOpacity style={styles.menuBox}
+        onPress={() => navigation.navigate("Workers")}
+      >
+        <Image
+          style={styles.icon}
+          source={require("../assets/boot.png")}
+        />
+        <Text style={styles.info}>Workers</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity style={styles.menuBox}>
         <Image
@@ -65,13 +72,7 @@ const Home = () =>
         <Text style={styles.info}>Farm SetUp</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.menuBox}>
-        <Image
-          style={styles.icon}
-          source={require("../assets/boot.png")}
-        />
-        <Text style={styles.info}>Workers</Text>
-      </TouchableOpacity>
+     
     </View>
     
     

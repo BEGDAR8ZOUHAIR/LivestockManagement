@@ -31,7 +31,7 @@ const AddWorker = () =>
     {
         try
         {
-            const res = await fetch("http://172.16.100.121:5000/client/AddWorker", {
+            const res = await fetch("http://172.16.100.121:5000/client/createWorker", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

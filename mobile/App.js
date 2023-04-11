@@ -19,7 +19,11 @@ import UpdateFarm from './screens/farms/UpdateFarm';
 import Milk from './screens/milk/Milk';
 import DetailMilk from './screens/milk/DetailMilk';
 import UpdateMilk from './screens/milk/UpdateMilk';
-import  AddMilk from './screens/milk/AddMilk';
+import AddMilk from './screens/milk/AddMilk';
+import AddWorker from './screens/worker/AddWorker';
+import Workers from './screens/worker/Workers';
+// import DetailWorker from './screens/worker/DetailWorker';
+// import UpdateWorker from './screens/worker/UpdateWorker';
 
 
 
@@ -159,6 +163,34 @@ export default function App()
               
             }}
           />
+          <Stack.Screen
+            name="AddWorker"
+            component={AddWorker}
+            options={{
+              // headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="Workers"
+            component={Workers}
+            options={{
+              // headerShown: false
+            }}
+          />
+          {/* <Stack.Screen
+            name="DetailWorker"
+            component={DetailWorker}
+            options={{
+              // headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name="UpdateWorker"
+            component={UpdateWorker}
+            options={{
+              // headerShown: false
+            }}
+          /> */}
           
         </Stack.Navigator>
       </NavigationContainer>
