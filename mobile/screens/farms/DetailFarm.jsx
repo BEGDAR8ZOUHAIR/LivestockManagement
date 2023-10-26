@@ -30,7 +30,7 @@ const DetailFarm = ({ navigation }) =>
             console.log(id, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
             try
             {
-                const response = await fetch(`http://172.16.100.121:5000/client/getFarmById/${id}`);
+                const response = await fetch(`http://192.168.1.159:5000/client/getFarmById/${id}`);
                 const data = await response.json();
                 setId(data);
                 await AsyncStorage.setItem('id', data._id);
@@ -57,7 +57,7 @@ const DetailFarm = ({ navigation }) =>
         const id = route.params?.id
         try
         {
-            const response = await fetch(`http://172.16.100.121:5000/client/deleteFarm/${id}`, {
+            const response = await fetch(`http://192.168.1.159:5000/client/deleteFarm/${id}`, {
                 method: 'DELETE',
             });
             const data = await response.json();

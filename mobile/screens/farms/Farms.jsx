@@ -30,7 +30,7 @@ const Farms = () =>
         {
             try
             {
-                const response = await fetch(`http://172.16.100.121:5000/client/getFarms`);
+                const response = await fetch(`http://192.168.1.159:5000/client/getFarms`);
                 const data = await response.json();
                 setCattle(data);
             } catch (error)

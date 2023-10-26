@@ -30,7 +30,7 @@ const DetailWorker = ({ navigation }) =>
             console.log(id, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
             try
             {
-                const response = await fetch(`http://172.16.100.121:5000/client/getWorkerById/${id}`);
+                const response = await fetch(`http://192.168.1.159:5000/client/getWorkerById/${id}`);
                 const data = await response.json();
                 setId(data);
                 await AsyncStorage.setItem('id', data._id);
@@ -57,7 +57,7 @@ const DetailWorker = ({ navigation }) =>
         const id = route.params?.id
         try
         {
-            const response = await fetch(`http://172.16.100.121:5000/client/deleteFarm/${id}`, {
+            const response = await fetch(`http://192.168.1.159:5000/client/deleteFarm/${id}`, {
                 method: 'DELETE',
             });
             const data = await response.json();
@@ -96,8 +96,8 @@ const DetailWorker = ({ navigation }) =>
                         <Text style={styles.textInfo}>Phone: {id.phone}</Text>
                         <Text style={styles.textInfo}>Address: {id.address}</Text>
                         <Text style={styles.textInfo}>Note: {id.note}</Text>
-                    
-            
+
+
 
                     </View>
                     <View style={styles.iconContainer}>

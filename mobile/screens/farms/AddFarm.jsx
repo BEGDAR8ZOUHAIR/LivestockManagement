@@ -28,7 +28,7 @@ const AddFarm = () =>
     {
         try
         {
-            const res = await fetch("http://172.16.100.121:5000/client/createFarm", {
+            const res = await fetch("http://192.168.1.159:5000/client/createFarm", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -27,7 +27,7 @@ const UpdateMilk = ({ navigation }) =>
   const [totalUsed, setTotalUsed] = useState("");
   const [note, setNote] = useState("");
 
- 
+
   const [refresh, setRefresh] = useState(false);
 
   const route = useRoute();
@@ -41,7 +41,7 @@ const UpdateMilk = ({ navigation }) =>
       try
       {
         const response = await fetch(
-          `http://172.16.100.121:5000/client/getMilkById/${id}`
+          `http://192.168.1.159:5000/client/getMilkById/${id}`
         );
         const data = await response.json();
         setId(data);
@@ -52,7 +52,7 @@ const UpdateMilk = ({ navigation }) =>
         setTotalUsed(data.totalUsed);
         setNote(data.note);
 
-   
+
       } catch (error)
       {
         console.error(error);
@@ -72,7 +72,7 @@ const UpdateMilk = ({ navigation }) =>
     try
     {
       await fetch(
-        `http://172.16.100.121:5000/client/updateMilk/${id}`,
+        `http://192.168.1.159:5000/client/updateMilk/${id}`,
         {
           method: "PUT",
           headers: {

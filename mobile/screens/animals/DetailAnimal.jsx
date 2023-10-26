@@ -31,7 +31,7 @@ const DetailAnimal = ({ navigation }) =>
             console.log(id, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
             try
             {
-                const response = await fetch(`http://172.16.100.121:5000/client/getCattleById/${id}`);
+                const response = await fetch(`http://192.168.1.159:5000/client/getCattleById/${id}`);
                 const data = await response.json();
                 setId(data);
                 await AsyncStorage.setItem('id', data._id);

@@ -36,7 +36,7 @@ const EditProfile = () =>
 
       try
       {
-        const response = await fetch(`http://172.16.100.121:5000/client/getClientById/${userId}`);
+        const response = await fetch(`http://192.168.1.159:5000/client/getClientById/${userId}`);
         const data = await response.json();
         setUser(data);
         setFullName(data.fullName);
@@ -65,7 +65,7 @@ const EditProfile = () =>
     };
     try
     {
-      await fetch(`http://172.16.100.121:5000/client/updateClient/${userId}`, {
+      await fetch(`http://192.168.1.159:5000/client/updateClient/${userId}`, {
         method: 'PUT',
         headers: {
           Accept: 'application/json',

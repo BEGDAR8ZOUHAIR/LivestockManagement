@@ -39,7 +39,7 @@ const UpdateFarm = ({ navigation }) =>
       try
       {
         const response = await fetch(
-          `http://172.16.100.121:5000/client/getFarmById/${id}`
+          `http://192.168.1.159:5000/client/getFarmById/${id}`
         );
         const data = await response.json();
         setId(data);
@@ -68,7 +68,7 @@ const UpdateFarm = ({ navigation }) =>
     try
     {
       await fetch(
-        `http://172.16.100.121:5000/client/updateFarm/${id}`,
+        `http://192.168.1.159:5000/client/updateFarm/${id}`,
         {
           method: "PUT",
           headers: {

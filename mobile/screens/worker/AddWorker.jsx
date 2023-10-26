@@ -25,13 +25,13 @@ const AddWorker = () =>
 
 
 
-  
+
 
     const handleAddFarm = async () =>
     {
         try
         {
-            const res = await fetch("http://172.16.100.121:5000/client/createWorker", {
+            const res = await fetch("http://192.168.1.159:5000/client/createWorker", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const AddWorker = () =>
                     phone,
                     address,
                     note,
-              
+
 
                 }),
             });
@@ -72,25 +72,25 @@ const AddWorker = () =>
                         placeholder="Name"
                         value={name}
                         onChangeText={(text) => setName(text)}
-                    />  
-                    <TextInput      
-                        style={styles.input}
-                        placeholder="Phone" 
-                        value={phone}   
-                        onChangeText={(text) => setPhone(text)}
-                    />
-                    <TextInput  
-                        style={styles.input}    
-                        placeholder="Address"   
-                        value={address} 
-                        onChangeText={(text) => setAddress(text)}   
                     />
                     <TextInput
-                        style={styles.input}    
-                        placeholder="Note"  
+                        style={styles.input}
+                        placeholder="Phone"
+                        value={phone}
+                        onChangeText={(text) => setPhone(text)}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Address"
+                        value={address}
+                        onChangeText={(text) => setAddress(text)}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Note"
                         value={note}
                         onChangeText={(text) => setNote(text)}
-                    />  
+                    />
 
                     <TouchableOpacity
                         style={styles.buttonlogout}

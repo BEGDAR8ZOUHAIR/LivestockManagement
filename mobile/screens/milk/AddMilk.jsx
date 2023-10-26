@@ -25,13 +25,13 @@ const AddMilk = () =>
     const [type, setType] = useState("");
     const [note, setNote] = useState("");
 
-  
+
 
     const handleAddFarm = async () =>
     {
         try
         {
-            const res = await fetch("http://172.16.100.121:5000/client/createMilk", {
+            const res = await fetch("http://192.168.1.159:5000/client/createMilk", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const AddMilk = () =>
             <View style={styles.container}>
 
                 <View style={styles.form}>
-                  
+
                     <TextInput
                         style={styles.input}
                         placeholder="Date"

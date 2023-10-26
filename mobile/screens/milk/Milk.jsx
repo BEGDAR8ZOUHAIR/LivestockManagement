@@ -30,7 +30,7 @@ const Milk = () =>
         {
             try
             {
-                const response = await fetch(`http://172.16.100.121:5000/client/getMilk`);
+                const response = await fetch(`http://192.168.1.159:5000/client/getMilk`);
                 const data = await response.json();
                 setCattle(data);
             } catch (error)
@@ -84,7 +84,7 @@ const Milk = () =>
                             <Text style={styles.nameText}>{item.Total} Litre</Text>
                             <Text style={styles.phoneText}>{item.totalUsed} Litre</Text>
                         </View>
-                            <Text style={styles.dateText}>{item.date} </Text>
+                        <Text style={styles.dateText}>{item.date} </Text>
 
                         <TouchableOpacity
                             style={styles.animalDetailsButton}

@@ -49,7 +49,7 @@ const UpdateAnimal = ({ navigation }) =>
       try
       {
         const response = await fetch(
-          `http://172.16.100.121:5000/client/getCattleById/${id}`
+          `http://192.168.1.159:5000/client/getCattleById/${id}`
         );
         const data = await response.json();
         setId(data);
@@ -89,7 +89,7 @@ const UpdateAnimal = ({ navigation }) =>
     try
     {
       await fetch(
-        `http://172.16.100.121:5000/client/updateCattle/${id}`,
+        `http://192.168.1.159:5000/client/updateCattle/${id}`,
         {
           method: "PUT",
           headers: {

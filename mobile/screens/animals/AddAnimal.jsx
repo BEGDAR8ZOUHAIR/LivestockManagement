@@ -40,7 +40,7 @@ const AddAnimal = () =>
     {
         try
         {
-            const res = await fetch("http://172.16.100.121:5000/client/createCattle", {
+            const res = await fetch("http://192.168.1.159:5000/client/createCattle", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
