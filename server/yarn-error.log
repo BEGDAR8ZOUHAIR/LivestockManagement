@@ -1,0 +1,69 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\youcode\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Users\youcode\Desktop\cmder_mini\vendor\conemu-maximus5\ConEmu\Scripts;C:\Users\youcode\Desktop\cmder_mini\vendor\conemu-maximus5;C:\Users\youcode\Desktop\cmder_mini\vendor\conemu-maximus5\ConEmu;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin;C:\Python311\Scripts\;C:\Python311\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\MinGW\bin;C:\xampp\php;C:\Program Files\dotnet\;C:\Program Files\Java\jdk-11;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Users\youcode\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\ProgramData\ComposerSetup\bin;C:\Users\youcode\AppData\Local\Android\Sdk\platform-tools;C:\Users\youcode\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\Users\youcode\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\MongoDB\Server\5.0\bin\;C:\Users\youcode\AppData\Roaming\Composer\vendor\bin;C:\Program Fi les\MongoDB\Server\5.0\bin\;C:\Users\youcode\AppData\Local\Android\Sdk\tools;C:\Program Files\Azure Data Studio\bin;C:\Users\youcode\.dotnet\tools;C:\Users\youcode\AppData\Local\Programs\Hyper\resources\bin;C:\Users\youcode\AppData\Roaming\npm;C:\Users\youcode\AppData\Roaming\nvm;C:\Program Files\nodejs;\Android\Sdk\platform-tools;C:\Users\youcode\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\youcode\Desktop\cmder_mini\vendor\bin;C:\Users\youcode\Desktop\cmder_mini
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://npm.pkg.github.com/begdar8zouhai/bcrypt: Permission denied
+      at params.callback [as _callback] (C:\Users\youcode\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66145:18)
+      at self.callback (C:\Users\youcode\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (C:\Users\youcode\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (C:\Users\youcode\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1359:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "cattle-website",
+    "version": "1.0.0",
+    "description": "Cattle website",
+    "main": "server.js",
+    "scripts": {
+      "start": "node api/server.js ",
+      "server": "nodemon api/server.js"
+    },
+    "author": "Zouhair",
+    "license": "MIT",
+    "dependencies": {
+      "bcrypt": "^5.1.0",
+      "bcryptjs": "^2.4.3",
+      "colors": "^1.4.0",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.3",
+      "emailsender-js": "^0.1.3",
+      "express": "^4.18.2",
+      "express-async-handler": "^1.2.0",
+      "fs": "^0.0.1-security",
+      "handlebars": "^4.7.7",
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^6.7.2",
+      "nodemailer": "^6.8.0",
+      "request": "^2.88.2",
+      "stripe": "^11.4.0",
+      "util": "^0.12.5",
+      "uuid": "^9.0.0"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.20"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

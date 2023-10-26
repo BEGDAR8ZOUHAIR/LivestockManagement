@@ -62,9 +62,24 @@ eas build --profile development --platform ios
 
 ## Expo Doctor   🏴‍☠️
 Run this command to fix any issues with your project: 🏴‍☠️
-expo doctor --fix-dependencies
+expo doctor --fix-dependencies --non-interactive
 
+## Adreess Ip for network 🏴‍☠️
 
+Open  CMD  🏴‍☠️
+Run this command to get your ip address:
+```
+ipconfig 
+```
+Example : 
+
+IPv4 Address. . . . . . . . . . . : 192.168.1.159
+Copy and past in fetch api 
+
+`````
+http://"your ip address":5000/client/register
+
+````
 
 ## Usage
 
